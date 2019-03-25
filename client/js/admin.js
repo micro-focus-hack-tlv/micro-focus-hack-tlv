@@ -1,11 +1,21 @@
 
 const SERVER_ADDRESS = 'localhost';
 const SERVER_PORT = 4242;
+let socket;
+let clientName = 'N/A';
 
-let socket = io.connect('http://localhost:4242');
+connectToServer = () => {
+    console.log(`connecting to server...`);
+    socket = io.connect(`http://${SERVER_ADDRESS}:${SERVER_PORT}`);
 
-socket.on('server-msg', (data) => {
-    alert(data.msg);
-});
+    userName = document.getElementById('nameInput').value;
+    console.log(`sending username "${userName}" to server...`);
+    socket.emit('client-msg-user-name', {
+        userName: userName
+    });
+    
+    socket.on('server-msg', (data) => {
+        console.log(`got message from server: ${data.msg}`);
+    });
 
-socket.emit('client-msg', {msg: 'hello'});
+};
