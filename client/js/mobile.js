@@ -1,12 +1,13 @@
 
 let socket;
-let userName = 'ADMIN';
+let userName = 'N/A';
 let userId = 'N/A';
 
 connectToServer = () => {
     console.log(`connecting to server...`);
     socket = io.connect(`http://${SERVER_ADDRESS}:${SERVER_PORT}`);
 
+    userName = document.getElementById('nameInput').value;
     console.log(`sending username "${userName}" to server...`);
     socket.emit('client-msg-user-name', {
         userName: userName
