@@ -2,7 +2,8 @@
 const SERVER_ADDRESS = 'localhost';
 const SERVER_PORT = 4242;
 let socket;
-let clientName = 'N/A';
+let userName = 'N/A';
+let userId = 'N/A';
 
 connectToServer = () => {
     console.log(`connecting to server...`);
@@ -12,6 +13,11 @@ connectToServer = () => {
     console.log(`sending username "${userName}" to server...`);
     socket.emit('client-msg-user-name', {
         userName: userName
+    });
+
+    socket.on('server-msg-user-id', (data) => {
+        console.log(`got user id from server: ${data.userId}`);
+        userId = data.userId;
     });
     
     socket.on('server-msg', (data) => {
