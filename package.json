@@ -1,0 +1,25 @@
+{
+  "name": "micro-focus-hack-tlv",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/micro-focus-hack-tlv/micro-focus-hack-tlv.git"
+  },
+  "author": "Uri Kalish",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/micro-focus-hack-tlv/micro-focus-hack-tlv/issues"
+  },
+  "homepage": "https://github.com/micro-focus-hack-tlv/micro-focus-hack-tlv#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "socket.io": "^2.2.0"
+  }
+}
