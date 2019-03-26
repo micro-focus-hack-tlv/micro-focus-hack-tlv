@@ -6,20 +6,22 @@
             <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
             <link rel="stylesheet" type="text/css" href="common.css"/>
             <link rel="stylesheet" type="text/css" href="mobile-common.css"/>
+            <link rel="stylesheet" type="text/css" href="mobile-register.css"/>
             <script src="lib/lodash.min.js"></script>
             <script src="lib/socket.io.slim.js"></script>
             <script src="common.js"></script>
             <script src="mobile-common.js"></script>
+            <script src="mobile-register.js"></script>
     </head>
-    <body class="mobile-page">
-        <div class="mobile--main-container">
+    <body class="mobile-register">
+        <div class="mobile-register--container">
             <div>
                 <h1>MOBILE PAGE</h1>
             </div>
             <div>
                 <span>My Name: </span>
                 <input id="nameInput" type="text" value="Kalish"/>
-                <button onclick="registerMobile()">Register</button>
+                <button onclick="goRegister()">Register</button>
             </div>            
         </div>
     </body>

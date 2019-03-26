@@ -1,1 +1,1 @@
-call "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" http://localhost:4242/mobile.html
+call "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" http://localhost:4242/mobile-register.html
