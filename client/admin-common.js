@@ -1,4 +1,6 @@
 
+console.log('admin-common.js');
+
 registerAdmin = () => {
     socket = connectToServer('ADMIN');
         
