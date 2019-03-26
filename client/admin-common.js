@@ -1,14 +1,11 @@
 
 console.log('admin-common.js');
 
-registerAdmin = () => {
+registerAdmin = (onServerMsgCallback) => {
     socket = connectToServer('ADMIN');
         
     socket.on('server-msg', (data) => {
-        console.log(`got message from server: ${data.msg}`);
+        onServerMsgCallback(data);
     });
 
 };
-
-registerAdmin();
-
