@@ -1,7 +1,6 @@
 
 const _ = require('lodash');
 const port = 4242;
-const adminUserName = 'ADMIN';
 const express = require('express');
 const app = express();
 let admin = null;
@@ -15,65 +14,25 @@ console.log(`server listening on port ${port}...`);
 server = app.listen(port);
 const io = require('socket.io')(server);
 
-function registerAdmin(socket, userName) {
-    admin = {
-        name: userName,
-        socket: socket    
-    }
-    console.log(`admin registered`);
-}
-
-function registerUser(socket, userName) {
-    let isNewUser = _.findIndex(users, {name: userName}) === -1;        
-    if (isNewUser) {
-        users.push({
-            name: userName,
-            socket: socket
-        });
-        console.log(`user "${userName}" registered`);
-        socket.emit('server-msg-user-registered', {});
-    }
-    else {
-        console.log(`user "${userName}" already registered`);
-    }
-    console.log(`Number of users registered: ${users.length}`); 
-}
-
-function unregsiterAdmin(socket) {
-    admin = null;
-    console.log(`admin unregistered`);
-}
-
-function unregisterUser(socket) {
-    let user = _.find(users, (u) => {
-        return socket.id === u.socket.id;
-    });
-    if (user) {
-        users = _.remove(users, (u) => {
-            u.socket.id === socket.id;
-        });
-        console.log(`user ${user.name} unregistered`);
-        console.log(`Number of registered users: ${users.length}`);
-    }    
-}
+let clientsMgr = require('./server-clients-mgr.js');
 
 io.on('connection', (socket) => {
     console.log(`socket ${socket.id} connected`);
 
     socket.on('client-msg-register-user', (data) => {
-        if (data.userName === adminUserName) {
-            registerAdmin(socket, data.userName);
+        if (data.userName === clientsMgr.ADMIN_USERNAME) {
+            clientsMgr.registerAdmin(socket, data.userName);
         }
         else {
-            registerUser(socket, data.userName);
+            clientsMgr.registerUser(socket, data.userName);
         }
     });
 
     socket.on('disconnect', () => {
-        if (admin !== null && socket.id === admin.socket.id) {
-            unregsiterAdmin(socket);
+        if (clientsMgr.getAdmin() !== null && socket.id === clientsMgr.getAdmin().socket.id) {
+            clientsMgr.unregsiterAdmin(socket);
         } else {
-            unregisterUser(socket);          
+            clientsMgr.unregisterUser(socket);          
         }
     });    
 
