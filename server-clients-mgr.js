@@ -23,17 +23,20 @@ exports.registerAdmin = (socket, userName) => {
 }
 
 exports.registerUser = (socket, userName) => {
-    let isNewUser = _.findIndex(users, {name: userName}) === -1;        
-    if (isNewUser) {
+    let user = _.find(users, (u) => {
+        return u.name === userName;
+    });
+    if (user) {
+        console.log(`user "${userName}" already registered`);
+        user.socket = socket;
+    }
+    else {
         users.push({
             name: userName,
             socket: socket
         });
         console.log(`user "${userName}" registered`);
         socket.emit('server-msg-user-registered', {});
-    }
-    else {
-        console.log(`user "${userName}" already registered`);
     }
     console.log(`Number of users registered: ${users.length}`); 
 }
@@ -45,7 +48,7 @@ exports.unregsiterAdmin = (socket) => {
 
 exports.unregisterUser = (socket) => {
     let user = _.find(users, (u) => {
-        return socket.id === u.socket.id;
+        return u.socket.id === socket.id;
     });
     if (user) {
         users = _.remove(users, (u) => {

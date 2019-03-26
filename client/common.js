@@ -7,12 +7,15 @@ let userName;
 
 connectToServer = (userName) => {
     userName = userName;
-    console.log(`connecting to server...`);
-    let socket = io.connect(`http://${SERVER_ADDRESS}:${SERVER_PORT}`);
-    
-    socket.on('server-msg-user-registered', (data) => {
-        console.log(`user registered on server`);
-    });
+
+    if (!socket) {
+        console.log(`connecting to server...`);
+        socket = io.connect(`http://${SERVER_ADDRESS}:${SERVER_PORT}`);
+        
+        socket.on('server-msg-user-registered', (data) => {
+            console.log(`user registered on server`);
+        });
+    }
 
     console.log(`sending username "${userName}" to server...`);
     socket.emit('client-msg-register-user', {
