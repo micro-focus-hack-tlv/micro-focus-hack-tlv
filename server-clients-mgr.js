@@ -15,6 +15,7 @@ exports.getUsers = () => {
 }
 
 exports.registerAdmin = (socket, userName) => {
+    console.log(`registerAdmin(${socket.id}, ${userName})`);
     admin = {
         name: userName,
         socket: socket    
@@ -23,6 +24,7 @@ exports.registerAdmin = (socket, userName) => {
 }
 
 exports.registerUser = (socket, userName) => {
+    console.log(`registerUser(${socket.id}, ${userName})`);
     let user = _.find(users, (u) => {
         return u.name === userName;
     });
@@ -42,12 +44,13 @@ exports.registerUser = (socket, userName) => {
 }
 
 exports.unregsiterAdmin = (socket) => {
+    console.log(`unregsiterAdmin(${socket.id})`);
     admin = null;
     console.log(`admin unregistered`);
 }
 
 exports.unregisterUser = (socket) => {
-    console.log('### ' + socket.id);
+    console.log(`unregisterUser(${socket.id})`);
     let user = _.find(users, (u) => {
         return u.socket.id === socket.id;
     });
