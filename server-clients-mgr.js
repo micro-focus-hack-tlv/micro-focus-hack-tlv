@@ -47,11 +47,12 @@ exports.unregsiterAdmin = (socket) => {
 }
 
 exports.unregisterUser = (socket) => {
+    console.log('### ' + socket.id);
     let user = _.find(users, (u) => {
         return u.socket.id === socket.id;
     });
     if (user) {
-        users = _.remove(users, (u) => {
+        _.remove(users, (u) => {
             return u.socket.id === socket.id;
         });
         console.log(`user ${user.name} unregistered`);
