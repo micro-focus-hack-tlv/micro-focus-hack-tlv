@@ -1,5 +1,5 @@
 
-connectAdmin = () => {
+registerAdmin = () => {
     socket = connectToServer('ADMIN');
         
     socket.on('server-msg', (data) => {
@@ -7,3 +7,6 @@ connectAdmin = () => {
     });
 
 };
+
+registerAdmin();
+

@@ -4,20 +4,18 @@ const SERVER_PORT = 4242;
 
 let socket;
 let userName;
-let userId;
 
 connectToServer = (userName) => {
     userName = userName;
     console.log(`connecting to server...`);
     let socket = io.connect(`http://${SERVER_ADDRESS}:${SERVER_PORT}`);
-    console.log(`sending username "${userName}" to server...`);
     
-    socket.on('server-msg-user-id', (data) => {
-        console.log(`got user id from server: ${data.userId}`);
-        userId = data.userId;
+    socket.on('server-msg-user-registered', (data) => {
+        console.log(`user registered on server`);
     });
-    
-    socket.emit('client-msg-user-name', {
+
+    console.log(`sending username "${userName}" to server...`);
+    socket.emit('client-msg-register-user', {
         userName: userName
     });
 }

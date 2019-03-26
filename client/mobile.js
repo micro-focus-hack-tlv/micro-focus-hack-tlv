@@ -1,5 +1,5 @@
 
-connectMobile = () => {
+registerMobile = () => {
     socket = connectToServer(document.getElementById('nameInput').value);
         
     socket.on('server-msg', (data) => {
