@@ -31,6 +31,12 @@ startGame = (gamePhase) => {
     }
 };
 
+stopGame = () => {
+    hideAllConatiners();
+    showContainer('div.admin-games-container');
+    showContainer('div.admin-users-container');
+};
+
 onServerMsg = (data) => {
     console.log(`onServerMsg(${data.msg})`);    
 };
@@ -49,3 +55,4 @@ onUserListUpdate = (data) => {
 };
 
 registerAdmin(onServerMsg, onUserListUpdate);
+stopGame();

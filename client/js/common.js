@@ -19,17 +19,21 @@ connectToServer = (userName) => {
     });
 };
 
-hideAllConatiner = () => {
-    document.querySelectorAll('div[class$="-container"]').forEach(elm => {
-        elm.classList.remove('show');
-        elm.classList.add('hide');
-    });
+hideAllConatiners = () => {
+    setTimeout(() => {
+        document.querySelectorAll('div[class$="-container"]').forEach(elm => {
+            elm.classList.remove('show');
+            elm.classList.add('hide');
+        });
+    }, 1000);
 };
 
-showConatiner = (selector) => {
-    let elm = document.querySelector(selector);
-    if (elm) {
-        elm.classList.remove('hide');
-        elm.classList.add('show');
-    }
+showContainer = (selectorStr) => {
+    setTimeout(() => {
+        let elm = document.querySelector(selectorStr);
+        if (elm) {
+            elm.classList.remove('hide');
+            elm.classList.add('show');
+        }
+    }, 1000);
 };

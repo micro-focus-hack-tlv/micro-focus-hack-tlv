@@ -23,8 +23,8 @@ mimeGamePhase = () => {
 
 startMimeGame = () => {
     console.log('startMimeGame()');
-    hideAllConatiner();
-    showConatiner('div.admin-mime-container');
+    hideAllConatiners();
+    showContainer('div.admin-mime-container');
     startGame(mimeGamePhase);
 };
 
