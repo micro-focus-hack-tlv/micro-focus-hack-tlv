@@ -11,8 +11,8 @@ onUserListUpdate = (data) => {
     alert(`user list update ${userNames.join()}`);
 };
 
-msgToMobiles = () => {
-    sendAdminMsgToServer({msg: "Hi from admin"});
+goBroarcastToMobiles = () => {
+    broarcastToMobiles({msg: "Hi from admin"});
 };
 
 registerAdmin(onServerMsg, onUserListUpdate);

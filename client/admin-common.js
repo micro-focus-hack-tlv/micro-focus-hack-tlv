@@ -1,7 +1,7 @@
 
-let userNames = [];
-
 console.log('admin-common.js');
+
+let userNames = [];
 
 registerAdmin = (onServerMsgCallback, onUserListUpdateCallback) => {
     connectToServer('ADMIN');
@@ -18,12 +18,8 @@ registerAdmin = (onServerMsgCallback, onUserListUpdateCallback) => {
     });     
 };
 
-sendAdminMsgToServer = (data) => {
-    socket.emit('admin-msg', data);
-};
-
-broadcastToClient = (data) => {
-    sendAdminMsgToServer(data);
+broarcastToMobiles = (data) => {
+    socket.emit('admin-msg-broadcast-to-clients', data);
 };
     
 getRandom = (max) => {

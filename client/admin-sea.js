@@ -10,16 +10,14 @@ onUserListUpdate = (data) => {
     alert(`user list update ${data.msg}`);
 };
    
-gamePhase =()=>{
-        let coin= getRandom(2);
-        let data = {gameName : 'sea'};
-        if (coin === 1){
-            data.land = true;
-        }
-        else{
-            data.sea = true;
-        }
-        broadcastToClient(data);
+gamePhase = () => {
+    let coin = getRandom(2);
+    let data = {
+        gameName: 'sea',
+        land: coin === 1,
+        sea: coin === 2
+    };    
+    broarcastToMobiles(data);
 };
 
 registerAdmin(onServerMsg, onUserListUpdate);

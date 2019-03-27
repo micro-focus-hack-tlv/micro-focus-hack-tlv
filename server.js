@@ -52,12 +52,16 @@ io.on('connection', (socket) => {
         } else {
             clientsMgr.unregisterUser(socket);          
         }        
-    });    
-
-    socket.on('admin-msg', (data) => {
-        console.log(`got message "${data.msg}" from admin`);
-        sendMsgToAllMobiles(socket, 'server-msg', data);
     });
+    
+    socket.on('admin-msg', (data) => {
+        console.log(`got message "${data.msg}" from admin`);                
+    });
+
+    socket.on('admin-msg-broadcast-to-clients', (data) => {
+        console.log(`got message "${data.msg}" from admin`);
+        sendMsgToAllMobiles(socket, 'server-msg', data);        
+    });    
 
     socket.on('mobile-msg', (data) => {
         console.log(`got message "${data.msg}" from mobile`);
