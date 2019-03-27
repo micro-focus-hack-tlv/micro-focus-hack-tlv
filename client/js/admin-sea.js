@@ -16,5 +16,5 @@ startSeaGame = () => {
     console.log('startSeaGame()');
     hideAllConatiners();
     showContainer('div.admin-sea-container');
-    startGame(seaGamePhase);
+    startGame('sea', seaGamePhase);
 };

@@ -1,8 +1,6 @@
 
 console.log('mobile-common.js');
 
-const LOCALSTORAGE_KEY_USERNAME = 'mfUserName';
-
 registerMobile = (userName, onServerMsgCallback) => {
     console.log(`registerMobile(${userName})`);
     connectToServer(userName);
@@ -14,15 +12,19 @@ registerMobile = (userName, onServerMsgCallback) => {
             onServerMsgCallback(data);
         }
     });
-
-    sendMobileMsgToServer({msg: `Hi from ${userName}`});
+    
+    waitForGame();
 };
 
 goRegister = () => {
     console.log(`goRegister()`);
     let userName = document.getElementById('nameInput').value;
-    localStorage.setItem(LOCALSTORAGE_KEY_USERNAME, userName);
     registerMobile(userName, onServerMsg);
+};
+
+waitForGame = () => {
+    hideAllConatiners();
+    showContainer('div#mobile-wait-container');    
 };
 
 sendMobileMsgToServer = (data) => {
@@ -30,12 +32,17 @@ sendMobileMsgToServer = (data) => {
     socket.emit('mobile-msg', data);
 };
 
-
-
-setUserNameFromLocalStorage = () => {
-    userName = localStorage.getItem(LOCALSTORAGE_KEY_USERNAME);    
-};
-
 onServerMsg = (data) => {
-    console.log(`onServerMsg(${data.msg})`);  
+    console.log(`onServerMsg(${data.msg})`);
+    if (data.msg === 'start-game') {
+        console.log(`${data.prm}`);
+        if (data.prm === 'mime') {
+            startMimeGame();
+        } else if (data.prm === 'sea') {
+            startSeaGame();
+        }
+    }
+    if (data.msg === 'stop-game') {
+        waitForGame();    
+    }
 };

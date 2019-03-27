@@ -24,8 +24,9 @@ broarcastToMobiles = (data) => {
     socket.emit('admin-msg-broadcast-to-clients', data);
 };
     
-startGame = (gamePhase) => {
-    console.log(`startGame()`);
+startGame = (gameName, gamePhase) => {
+    console.log(`startGame(${gameName})`);
+    broarcastToMobiles({msg: 'start-game', prm: gameName});
     for (let i=0; i<10; i++) {
         setTimeout(gamePhase, 5000);
     }
@@ -35,6 +36,7 @@ stopGame = () => {
     hideAllConatiners();
     showContainer('div#admin-games-container');
     showContainer('div#admin-users-container');
+    broarcastToMobiles({msg: 'stop-game'});
 };
 
 onServerMsg = (data) => {

@@ -25,7 +25,7 @@ startMimeGame = () => {
     console.log('startMimeGame()');
     hideAllConatiners();
     showContainer('div.admin-mime-container');
-    startGame(mimeGamePhase);
+    startGame('mime', mimeGamePhase);
 };
 
 setPharses();
