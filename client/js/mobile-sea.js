@@ -10,9 +10,9 @@ startSeaGame = () => {
 showMessagesFromSeaGame = (data) => {
     if (data.sea) {
         console.log('SEA');
-        alert('SEA');        
+        //alert('SEA');        
     } else {
         console.log('LAND');
-        alert('LAND');
+        //alert('LAND');
     }
 };

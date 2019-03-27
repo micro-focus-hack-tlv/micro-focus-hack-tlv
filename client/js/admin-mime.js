@@ -13,10 +13,10 @@ setPharses = () => {
 
 mimeGamePhase = () => {
     console.log('gamePhase()');
-	let coin = Math.floor(Math.random()*listOfPhrases.length);
 	let data = {
+        msg: 'admin-msg-mime-game',
         gameName: 'mime-game',
-        selectedPhrase: listOfPhrases[coin]
+        selectedPhrase: listOfPhrases[Math.floor(Math.random()*listOfPhrases.length)]
     };
 	broarcastToMobiles(data);
 };

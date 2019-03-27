@@ -5,6 +5,7 @@ seaGamePhase = () => {
     console.log('gamePhase()');
     let coin = Math.floor(Math.random()*2);
     let data = {
+        msg: 'admin-msg-sea-game',
         gameName: 'sea',
         land: coin === 1,
         sea: coin === 2
