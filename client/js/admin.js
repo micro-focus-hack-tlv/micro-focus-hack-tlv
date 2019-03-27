@@ -21,7 +21,7 @@ registerAdmin = (onServerMsgCallback, onUserListUpdateCallback) => {
 
 broarcastToMobiles = (data) => {
     console.log(`broarcastToMobiles(${data.msg})`);
-    socket.emit('admin-msg-broadcast-to-clients', data);
+    socket.emit('admin-msg', data);
 };
     
 startGame = (gameName, gamePhase) => {
