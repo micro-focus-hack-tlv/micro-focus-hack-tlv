@@ -24,8 +24,7 @@ io.on('connection', (socket) => {
             clientsMgr.registerAdmin(socket, data.userName);
         }
         else {
-            clientsMgr.registerUser(socket, data.userName);
-            socket.broadcast.emit('server-msg', {msg: 'yo'});
+            clientsMgr.registerUser(socket, data.userName);            
         }
     });
 
