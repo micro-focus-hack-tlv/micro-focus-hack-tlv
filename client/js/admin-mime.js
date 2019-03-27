@@ -21,5 +21,8 @@ mimeGamePhase = () => {
 	broarcastToMobiles(data);
 };
 
+startMimeGame = () => {
+    startGame(mimeGamePhase);
+}
+
 setPharses();
-//startGame(mimeGamePhase);

@@ -24,15 +24,13 @@
             <div>
                 <h1>GAME LIST</h1>
             </div>
-            <div dir="rtl">
-                <div>
-                    <a href="./admin-mime.html" class="admin-game-btn">פנטומימה</a>
-                </div>
-                <div>
-                    <a href="./admin-sea.html" class="admin-game-btn">ים-יבשה</a>
-                </div>
+            <div dir="rtl" class="admin-game-list">
+                <button onclick="startMimeGame()" class="admin-game-btn">פנטומימה</button>
+                <button onclick="startSeaGame()" class="admin-game-btn">ים-יבשה</button>
             </div>
-            <button onclick="goBroarcastToMobiles()">Broarcast to mobiles</button>
+            <div>
+                <button onclick="goBroarcastToMobiles()">Broarcast to mobiles</button>
+            </div>
             <div>
                 <h1>PLAYERS</h1>
             </div>            

@@ -12,4 +12,6 @@ seaGamePhase = () => {
     broarcastToMobiles(data);
 };
 
-//startGame(seaGamePhase);
+startSeaGame = () => {
+    startGame(seaGamePhase);
+}
