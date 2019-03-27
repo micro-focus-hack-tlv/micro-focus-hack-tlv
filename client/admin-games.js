@@ -8,7 +8,7 @@ onServerMsg = (data) => {
 
 onUserListUpdate = (data) => {
     console.log(`user list update ${data.msg}`);
-    alert(`user list update ${data.msg}`);
+    alert(`user list update ${userNames.join()}`);
 };
 
 msgToMobiles = () => {
