@@ -1,15 +1,26 @@
 
 console.log('mobile-common.js');
 
-registerMobile = (userName, onServerMsgCallback) => {
+registerMobile = (userName) => {
     console.log(`registerMobile(${userName})`);
     connectToServer(userName);
 
     socket.on('server-msg', (data) => {
-        if (data.gameName === 'sea'){
+        console.log(`onServerMsg(${data.msg})`);
+        if (data.msg === 'stop-game') {
+            waitForGame();    
+        }      
+    });
+
+    socket.on('admin-msg', (data) => {
+        if (data.msg === 'start-game-mime') {
+            startMimeGame();
+        } else if (data.msg === 'start-game-sea') {
+            startSeaGame();
+        } else if (data.msg === 'mime-game-msg') {
+            showMessagesFromMimeGame(data);            
+        } else if (data.msg === 'sea-game-msg') {
             showMessagesFromSeaGame(data);            
-        } else {
-            onServerMsgCallback(data);
         }
     });
     
@@ -19,7 +30,7 @@ registerMobile = (userName, onServerMsgCallback) => {
 goRegister = () => {
     console.log(`goRegister()`);
     let userName = document.getElementById('nameInput').value;
-    registerMobile(userName, onServerMsg);
+    registerMobile(userName);
 };
 
 waitForGame = () => {
@@ -30,19 +41,4 @@ waitForGame = () => {
 sendMobileMsgToServer = (data) => {
     console.log(`sendMobileMsgToServer(${data.msg})`);
     socket.emit('mobile-msg', data);
-};
-
-onServerMsg = (data) => {
-    console.log(`onServerMsg(${data.msg})`);
-    if (data.msg === 'start-game') {
-        console.log(`${data.prm}`);
-        if (data.prm === 'mime') {
-            startMimeGame();
-        } else if (data.prm === 'sea') {
-            startSeaGame();
-        }
-    }
-    if (data.msg === 'stop-game') {
-        waitForGame();    
-    }
 };

@@ -56,11 +56,11 @@ io.on('connection', (socket) => {
     
     socket.on('admin-msg', (data) => {
         console.log(`got message "${data.msg}" from admin`);
-        sendMsgToAllMobiles(socket, 'server-msg', data);                
+        sendMsgToAllMobiles(socket, 'admin-msg', data);
     });
 
     socket.on('mobile-msg', (data) => {
         console.log(`got message "${data.msg}" from mobile`);
-        sendMsgToAdmin('server-msg', data);
+        sendMsgToAdmin('client-msg', data);
     });
 });

@@ -14,18 +14,17 @@ setPharses = () => {
 mimeGamePhase = () => {
     console.log('gamePhase()');
 	let data = {
-        msg: 'admin-msg-mime-game',
-        gameName: 'mime-game',
+        msg: 'mime-game-msg',
         selectedPhrase: listOfPhrases[Math.floor(Math.random()*listOfPhrases.length)]
     };
-	broarcastToMobiles(data);
+	//broarcastToMobiles(data);
 };
 
 startMimeGame = () => {
     console.log('startMimeGame()');
     hideAllConatiners();
     showContainer('div.admin-mime-container');
-    startGame('mime', mimeGamePhase);
+    startGame('start-game-mime', mimeGamePhase);
 };
 
 setPharses();

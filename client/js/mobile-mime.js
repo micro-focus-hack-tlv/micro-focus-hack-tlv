@@ -6,3 +6,7 @@ startMimeGame = () => {
     hideAllConatiners();
     showContainer('div.mobile-mime-container');
 };
+
+showMessagesFromMimeGame = (data) => {
+    console.log('MIME');
+};

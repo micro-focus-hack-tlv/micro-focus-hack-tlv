@@ -18,8 +18,7 @@ connectToServer = (userName) => {
 };
 
 hideAllConatiners = () => {
-    let elms = document.querySelectorAll('div[id$="-container"]');
-    console.log('### ' + elms.length);
+    let elms = document.querySelectorAll('div[id$="-container"]');    
     elms.forEach(elm => {
         elm.classList.remove('show');
         elm.classList.add('hide');

@@ -24,9 +24,9 @@ broarcastToMobiles = (data) => {
     socket.emit('admin-msg', data);
 };
     
-startGame = (gameName, gamePhase) => {
-    console.log(`startGame(${gameName})`);
-    broarcastToMobiles({msg: 'start-game', prm: gameName});
+startGame = (msg, gamePhase) => {
+    console.log(`startGame(${msg})`);
+    broarcastToMobiles({msg: msg});
     for (let i=0; i<10; i++) {
         setTimeout(gamePhase, 5000);
     }
