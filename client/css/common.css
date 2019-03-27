@@ -1,11 +1,11 @@
 @font-face {
 	font-family: "alef-regular";
-	src: url('font/Alef-Regular.woff') format('woff');
+	src: url('../font/Alef-Regular.woff') format('woff');
 }
 
 @font-face {
 	font-family: "alef-bold";
-	src: url('font/Alef-Bold.woff') format('woff');
+	src: url('../font/Alef-Bold.woff') format('woff');
 }
 
 * {
