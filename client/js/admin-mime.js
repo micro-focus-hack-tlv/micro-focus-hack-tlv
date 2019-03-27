@@ -3,15 +3,6 @@ console.log('admin-mime.js');
 
 let listOfPhrases = [];
 
-onServerMsg = (data) => {
-    console.log(`onServerMsg(${data.msg})`);
-};
-
-onUserListUpdate = (data) => {
-    console.log(`onUserListUpdate(${data.msg})`);
-    alert(`user list update ${data.msg}`);
-};
-
 setPharses = () => {
     console.log('setPharses()');
 	listOfPhrases.push('house');
@@ -20,7 +11,7 @@ setPharses = () => {
 	listOfPhrases.push('table');
 };
 
-gamePhase = () => {
+mimeGamePhase = () => {
     console.log('gamePhase()');
 	let coin = getRandom(listOfPhrases.length);
 	let data = {
@@ -30,6 +21,5 @@ gamePhase = () => {
 	broarcastToMobiles(data);
 };
 
-registerAdmin(onServerMsg, onUserListUpdate);
 setPharses();
-startGame(gamePhase);
+//startGame(mimeGamePhase);

@@ -1,16 +1,7 @@
 
 console.log('admin-sea.js');
 
-onServerMsg = (data) => {
-    console.log(`onServerMsg(${data.msg})`);
-};
-
-onUserListUpdate = (data) => {
-    console.log(`onUserListUpdate(${data.msg})`);
-    alert(`user list update ${data.msg}`);
-};
-   
-gamePhase = () => {
+seaGamePhase = () => {
     console.log('gamePhase()');
     let coin = getRandom(2);
     let data = {
@@ -21,5 +12,4 @@ gamePhase = () => {
     broarcastToMobiles(data);
 };
 
-registerAdmin(onServerMsg, onUserListUpdate);
-startGame(gamePhase);
+//startGame(seaGamePhase);
