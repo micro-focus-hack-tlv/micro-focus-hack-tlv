@@ -16,6 +16,11 @@ const io = require('socket.io')(server);
 
 let clientsMgr = require('./server-clients-mgr.js');
 
+let sendMsgToAllMobiles = (socket, data) => {
+    console.log(`sending msg "${data.msg}" to all mobiles...`);
+    socket.broadcast.emit('server-msg', data);
+}
+
 io.on('connection', (socket) => {
     console.log(`socket ${socket.id} connected`);
 
@@ -36,7 +41,12 @@ io.on('connection', (socket) => {
         }
     });    
 
-    socket.on('client-msg', (data) => {
-        console.log(`got message from client: ${data.msg}`);
+    socket.on('admin-msg', (data) => {
+        console.log(`got message "${data.msg}" from admin`);
+        sendMsgToAllMobiles(socket, data);
+    });
+
+    socket.on('mobile-msg', (data) => {
+        console.log(`got message "${data.msg}" from mobile`);
     });
 });
