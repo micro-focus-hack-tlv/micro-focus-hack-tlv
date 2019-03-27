@@ -7,12 +7,10 @@ let userName;
 
 connectToServer = (userName) => {
     userName = userName;
-
     if (!socket) {
         console.log(`connecting to server...`);
         socket = io.connect(`http://${SERVER_ADDRESS}:${SERVER_PORT}`);        
     }
-
     console.log(`sending username "${userName}" to server...`);
     socket.emit('client-msg-register-user', {
         userName: userName
@@ -20,20 +18,18 @@ connectToServer = (userName) => {
 };
 
 hideAllConatiners = () => {
-    setTimeout(() => {
-        document.querySelectorAll('div[class$="-container"]').forEach(elm => {
-            elm.classList.remove('show');
-            elm.classList.add('hide');
-        });
-    }, 1000);
+    let elms = document.querySelectorAll('div[id$="-container"]');
+    console.log('### ' + elms.length);
+    elms.forEach(elm => {
+        elm.classList.remove('show');
+        elm.classList.add('hide');
+    });
 };
 
 showContainer = (selectorStr) => {
-    setTimeout(() => {
-        let elm = document.querySelector(selectorStr);
-        if (elm) {
-            elm.classList.remove('hide');
-            elm.classList.add('show');
-        }
-    }, 1000);
+    let elm = document.querySelector(selectorStr);
+    if (elm) {
+        elm.classList.remove('hide');
+        elm.classList.add('show');
+    }
 };
