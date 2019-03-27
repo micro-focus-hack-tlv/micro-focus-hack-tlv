@@ -34,3 +34,11 @@ body {
 b {
 	font-family: Alef-Bold, arial, sans-serif;
 }
+
+.hide {
+	display: none;
+}
+
+.show {
+	display: block;
+}

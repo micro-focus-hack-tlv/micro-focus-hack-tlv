@@ -17,4 +17,19 @@ connectToServer = (userName) => {
     socket.emit('client-msg-register-user', {
         userName: userName
     });
-}
+};
+
+hideAllConatiner = () => {
+    document.querySelectorAll('div[class$="-container"]').forEach(elm => {
+        elm.classList.remove('show');
+        elm.classList.add('hide');
+    });
+};
+
+showConatiner = (selector) => {
+    let elm = document.querySelector(selector);
+    if (elm) {
+        elm.classList.remove('hide');
+        elm.classList.add('show');
+    }
+};
