@@ -6,8 +6,13 @@ onServerMsg = (data) => {
     alert(data.msg);
 };
 
+onUserListUpdate = (data) => {
+    console.log(`user list update ${data.msg}`);
+    alert(`user list update ${data.msg}`);
+};
+
 msgToMobiles = () => {
     sendAdminMsgToServer({msg: "Hi from admin"});
 };
 
-registerAdmin(onServerMsg);
+registerAdmin(onServerMsg, onUserListUpdate);

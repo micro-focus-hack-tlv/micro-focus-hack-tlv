@@ -6,9 +6,7 @@ registerMobile = (userName, onServerMsgCallback) => {
         
     socket.on('server-msg', (data) => {
         onServerMsgCallback(data);
-    });
-
-    sendMobileMsgToServer({msg: `Hi from ${userName}`});
+    });    
 };
 
 sendMobileMsgToServer = (data) => {

@@ -14,6 +14,14 @@ exports.getUsers = () => {
     return users;
 }
 
+getUserNames = () => {
+    let userNames = [];
+    users.forEach((u) => {
+        userNames.push(u.name);
+    });
+    return userNames.join();
+};
+
 exports.registerAdmin = (socket, userName) => {
     console.log(`registerAdmin(${socket.id}, ${userName})`);
     admin = {
@@ -21,6 +29,7 @@ exports.registerAdmin = (socket, userName) => {
         socket: socket    
     }
     console.log(`admin registered`);
+    sendMsgToAdmin('server-msg-user-list-update', {msg: getUserNames()});
 }
 
 exports.registerUser = (socket, userName) => {
@@ -38,9 +47,9 @@ exports.registerUser = (socket, userName) => {
             socket: socket
         });
         console.log(`user "${userName}" registered`);
-        socket.emit('server-msg-user-registered', {});
+        sendMsgToAdmin('server-msg-user-list-update', {msg: getUserNames()});        
     }
-    console.log(`Number of users registered: ${users.length}`); 
+    console.log(`Number of users registered: ${users.length}`);    
 }
 
 exports.unregsiterAdmin = (socket) => {
@@ -60,5 +69,6 @@ exports.unregisterUser = (socket) => {
         });
         console.log(`user ${user.name} unregistered`);
         console.log(`Number of registered users: ${users.length}`);
+        sendMsgToAdmin('server-msg-user-list-update', {msg: getUserNames()});
     }    
 }

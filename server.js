@@ -16,19 +16,23 @@ const io = require('socket.io')(server);
 
 let clientsMgr = require('./server-clients-mgr.js');
 
-sendMsgToAdmin = (data) => {
+sendMsgToAdmin = (channel, data) => {
     if (clientsMgr.getAdmin() !== null) {
         console.log(`sending msg "${data.msg}" to admin...`);
-        clientsMgr.getAdmin().socket.emit('server-msg', data);
+        clientsMgr.getAdmin().socket.emit(channel, data);
     } else {
         console.log(`No admin`);
     }
-}
+};
 
-let sendMsgToAllMobiles = (socket, data) => {
+let sendMsgToAllMobiles = (socket, channel, data) => {
     console.log(`sending msg "${data.msg}" to all mobiles...`);
-    socket.broadcast.emit('server-msg', data);
-}
+    socket.broadcast.emit(channel, data);
+};
+
+let updateAdminAboutUserList = () => {
+    sendMsgToAdmin('server-msg-user-list-update', {msg: clientsMgr.getUsers()});
+};
 
 io.on('connection', (socket) => {
     console.log(`socket ${socket.id} connected`);
@@ -39,7 +43,7 @@ io.on('connection', (socket) => {
         }
         else {
             clientsMgr.registerUser(socket, data.userName);            
-        }
+        }        
     });
 
     socket.on('disconnect', () => {
@@ -47,16 +51,16 @@ io.on('connection', (socket) => {
             clientsMgr.unregsiterAdmin(socket);
         } else {
             clientsMgr.unregisterUser(socket);          
-        }
+        }        
     });    
 
     socket.on('admin-msg', (data) => {
         console.log(`got message "${data.msg}" from admin`);
-        sendMsgToAllMobiles(socket, data);
+        sendMsgToAllMobiles(socket, 'server-msg', data);
     });
 
     socket.on('mobile-msg', (data) => {
         console.log(`got message "${data.msg}" from mobile`);
-        sendMsgToAdmin(data);
+        sendMsgToAdmin('server-msg', data);
     });
 });
