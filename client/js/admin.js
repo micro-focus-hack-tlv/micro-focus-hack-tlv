@@ -14,7 +14,7 @@ registerAdmin = (onServerMsgCallback, onUserListUpdateCallback) => {
 
     socket.on('server-msg-user-list-update', (data) => {
         console.log(`on.server-msg-user-list-update: ${data.msg}`);
-        userNames = data.msg.split(',');
+        userNames = data.msg ? data.msg.split(',') : [];
         onUserListUpdateCallback(data);
     });     
 };
@@ -30,7 +30,7 @@ getRandom = (max) => {
     
 startGame = (gamePhase) => {
     console.log(`startGame()`);
-    for (let i=0; i<10; i++){
+    for (let i=0; i<10; i++) {
         setTimeout(gamePhase, 5000);
     }
 };

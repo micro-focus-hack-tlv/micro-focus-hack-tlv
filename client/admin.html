@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Micro Focus Hack TLV</title>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Micro Focus Hack TLV" />
+        <link rel="shortcut icon" href="img/favicon.ico?v=1" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="css/common.css" />
+        <link rel="stylesheet" type="text/css" href="css/admin.css" />
+        <link rel="stylesheet" type="text/css" href="css/admin-games.css" />
+        <link rel="stylesheet" type="text/css" href="css/admin-mime.css"/>
+        <link rel="stylesheet" type="text/css" href="css/admin-sea.css"/>
+        <script src="lib/lodash.min.js"></script>
+        <script src="lib/socket.io.slim.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/admin.js"></script>
+        <script src="js/admin-games.js"></script>
+        <script src="js/admin-mime.js"></script>
+        <script src="js/admin-sea.js"></script>
+    </head>
+    <body class="admin">
+        <div id="admin-games--container" class="admin-games--container">
+            <div>
+                <h1>GAME LIST</h1>
+            </div>
+            <div dir="rtl">
+                <div>
+                    <a href="./admin-mime.html" class="admin-games--game-btn">פנטומימה</a>
+                </div>
+                <div>
+                    <a href="./admin-sea.html" class="admin-games--game-btn">ים-יבשה</a>
+                </div>
+            </div>
+            <button onclick="goBroarcastToMobiles()">Broarcast to mobiles</button>
+            <div>
+                <h1>PLAYERS</h1>
+            </div>
+            <div id="user-names">
+            </div>
+        </div>
+        <div id="admin-mime--container" class="admin-mime--container">
+            <div>
+                <h1>ADMIN MIME</h1>
+            </div>                     
+        </div>
+        <div id="admin-sea--container" class="admin-sea--container">
+            <div>
+                <h1>ADMIN SEA</h1>
+            </div>                     
+        </div>
+    </body>
+</html>
