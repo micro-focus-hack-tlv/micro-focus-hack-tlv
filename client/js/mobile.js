@@ -35,6 +35,14 @@ goRegister = () => {
     registerMobile(userName);
 };
 
+onTurnEnded = () => {
+    console.log('Turn ended');
+    let data = {
+        msg : 'turn ended'
+    };
+    sendMobileMsgToServer(data);
+}
+
 waitForGame = () => {
     hideAllConatiners();
     showContainer('div#mobile-wait-container');    
