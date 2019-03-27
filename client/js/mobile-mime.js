@@ -9,4 +9,5 @@ startMimeGame = () => {
 
 showMessagesFromMimeGame = (data) => {
     console.log('MIME');
+    console.log('Phrase: ' + data.selectedPhrase)
 };
