@@ -11,3 +11,17 @@ onUserListUpdate = (data) => {
 };
 
 registerAdmin(onServerMsg, onUserListUpdate);
+    
+gamePhase =()=>{
+        let coin= getRandom(2);
+        let data = {gameName : 'sea'};
+        if (coin === 1){
+            data.land = true;
+        }
+        else{
+            data.sea = true;
+        }
+        broadcastToClient(data);
+};
+    
+onGameStarted(gamePhase);
