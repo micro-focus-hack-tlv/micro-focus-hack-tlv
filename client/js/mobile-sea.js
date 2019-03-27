@@ -1,9 +1,12 @@
 
 console.log('mobile-sea.js');
 
-onServerMsg = (data) => {
-    console.log(`onServerMsg(${data.msg})`);
+showMessagesFromSeaGame = (data) => {
+    if (data.sea) {
+        console.log('SEA');
+        alert('SEA');        
+    } else {
+        console.log('LAND');
+        alert('LAND');
+    }
 };
-
-setUserNameFromLocalStorage();
-registerMobile(userName, onServerMsg);

@@ -6,3 +6,23 @@ html {
 body {
 	background-color: #445;
 }
+
+.admin-games-container {
+	padding: 20px;
+}
+
+.admin-game-btn {
+	outline: none;
+	margin: 10px 10px;
+	border: none;
+	border-radius: 10px;
+	background: #cc6600;
+	padding: 10px 20px;
+	color: #fff;
+	font-size: 30px;
+	cursor: pointer;	
+}
+
+.admin-users-container {
+    padding: 20px;
+}

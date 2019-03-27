@@ -24,20 +24,11 @@ broarcastToMobiles = (data) => {
     socket.emit('admin-msg-broadcast-to-clients', data);
 };
     
-getRandom = (max) => {    
-    return Math.floor(Math.random() * Math.floor(max));
-};
-    
 startGame = (gamePhase) => {
     console.log(`startGame()`);
     for (let i=0; i<10; i++) {
         setTimeout(gamePhase, 5000);
     }
-};
-
-goBroarcastToMobiles = () => {
-    console.log(`goBroarcastToMobiles())`);
-    broarcastToMobiles({ msg: "Hi from admin" });
 };
 
 onServerMsg = (data) => {

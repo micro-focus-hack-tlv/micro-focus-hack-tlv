@@ -6,3 +6,11 @@ html {
 body {
 	background-color: #845;
 }
+
+.mobile-register-container {
+	padding: 20px;
+}
+
+.mobile-wait-container {
+	padding: 20px;
+}

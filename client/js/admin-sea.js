@@ -3,7 +3,7 @@ console.log('admin-sea.js');
 
 seaGamePhase = () => {
     console.log('gamePhase()');
-    let coin = getRandom(2);
+    let coin = Math.floor(Math.random()*2);
     let data = {
         gameName: 'sea',
         land: coin === 1,
@@ -13,5 +13,6 @@ seaGamePhase = () => {
 };
 
 startSeaGame = () => {
+    console.log('startSeaGame()');
     startGame(seaGamePhase);
 }
