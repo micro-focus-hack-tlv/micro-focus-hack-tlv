@@ -1,3 +1,13 @@
+@font-face {
+	font-family: "alef-regular";
+	src: url('font/Alef-Regular.woff') format('woff');
+}
+
+@font-face {
+	font-family: "alef-bold";
+	src: url('font/Alef-Bold.woff') format('woff');
+}
+
 * {
 	box-sizing: border-box;
 }
@@ -7,7 +17,7 @@ html {
 	width: 100%;
 	margin: 0;
 	padding: 0;
-	font-family: helvetica, sans-serif;
+	font-family: Alef-Regular, arial, helvetica, sans-serif;
 	font-size: 16px;
 }
 
@@ -19,4 +29,8 @@ body {
 	padding: 0;	
 	color: #fff;
 	background-color: #000;
+}
+
+b {
+	font-family: Alef-Bold, arial, helvetica, sans-serif;
 }
