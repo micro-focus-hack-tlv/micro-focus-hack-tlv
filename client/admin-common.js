@@ -22,15 +22,15 @@ sendAdminMsgToServer = (data) => {
     socket.emit('admin-msg', data);
 };
 
-broadcastToClient = (data) =>{
+broadcastToClient = (data) => {
     sendAdminMsgToServer(data);
 };
     
-getRandom =(max) => {
+getRandom = (max) => {
     return Math.floor(Math.random() * Math.floor(max));
 };
     
-onGameStarted = (gamePhase) => {
+startGame = (gamePhase) => {
     for (let i=0;i<10;i++){
         setTimeout(gamePhase, 500);
     }

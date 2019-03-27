@@ -1,6 +1,8 @@
 
 console.log('admin-mime.js');
 
+let listOfPhrases = [];
+
 onServerMsg = (data) => {
     console.log(`got message from server: ${data.msg}`);
 };
@@ -10,11 +12,6 @@ onUserListUpdate = (data) => {
     alert(`user list update ${data.msg}`);
 };
 
-registerAdmin(onServerMsg, onUserListUpdate);
-
-
-let listOfPhrases = [];
-
 setPharses = () => {
 	listOfPhrases.push('house');
 	listOfPhrases.push('fish');
@@ -22,13 +19,13 @@ setPharses = () => {
 	listOfPhrases.push('table');
 };
 
-setPharses();
-
-gamePhase =()=>{
+gamePhase = () => {
 	let coin= getRandom(listOfPhrases.length);
 	let data = { gameName : 'mime-game'};
 	data.selectedPhrase = listOfPhrases[coin];
 	broadcastToClient(data);
 };
 
-onGameStarted(gamePhase);
+setPharses();
+registerAdmin(onServerMsg, onUserListUpdate);
+startGame(gamePhase);
