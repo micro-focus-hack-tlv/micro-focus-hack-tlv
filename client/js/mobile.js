@@ -21,6 +21,8 @@ registerMobile = (userName) => {
             showMessagesFromMimeGame(data);            
         } else if (data.msg === 'sea-game-msg') {
             showMessagesFromSeaGame(data);            
+        } else if (data.msg === 'stop-game') {
+            waitForGame();    
         }
     });
     
