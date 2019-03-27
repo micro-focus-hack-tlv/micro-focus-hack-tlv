@@ -6,41 +6,58 @@ let userNames = [];
 registerAdmin = (onServerMsgCallback, onUserListUpdateCallback) => {
     console.log(`registerAdmin()`);
     connectToServer('ADMIN');
-    
+
     socket.on('server-msg', (data) => {
         console.log(`on.server-msg: ${data.msg}`);
         onServerMsgCallback(data);
-    });  
+    });
+
+    socket.on('mobile-msg', (data) => {
+        console.log(`on.mobile-msg: ${data.msg}`);
+        if (data.msg !== 'turn ended'){
+            playNextTurn();
+        }
+    });
 
     socket.on('server-msg-user-list-update', (data) => {
         console.log(`on.server-msg-user-list-update: ${data.msg}`);
         userNames = data.msg ? data.msg.split(',') : [];
         onUserListUpdateCallback(data);
-    });     
+    });
 };
 
 broarcastToMobiles = (data) => {
     console.log(`broarcastToMobiles(${data.msg})`);
     socket.emit('admin-msg', data);
 };
-    
-startGame = (msg, gamePhase) => {
+
+startGame = (msg) => {
     console.log(`startGame(${msg})`);
-    broarcastToMobiles({msg: msg});
-    for (let i=0; i<10; i++) {
-        setTimeout(gamePhase, 5000);
+    broarcastToMobiles({ msg: msg });
+    playNextTurn();
+};
+
+playNextTurn = (msg) => { 
+    console.log(`${msg}`);
+    let selectedUserIndex = Math.floor(Math.random() * userNames.length);
+    let phaseData = getGamePhase();
+    if (phaseData.msg === 'mime-game-ended'){
+        stopGame();
+        return;
     }
+    phaseData.userName = userNames[selectedUserIndex];
+    broarcastToMobiles(phaseData);
 };
 
 stopGame = () => {
     hideAllConatiners();
     showContainer('div#admin-games-container');
     showContainer('div#admin-users-container');
-    broarcastToMobiles({msg: 'stop-game'});
+    broarcastToMobiles({ msg: 'stop-game' });
 };
 
 onServerMsg = (data) => {
-    console.log(`onServerMsg(${data.msg})`);    
+    console.log(`onServerMsg(${data.msg})`);
 };
 
 onUserListUpdate = (data) => {
