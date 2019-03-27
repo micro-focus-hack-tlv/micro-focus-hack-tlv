@@ -2,10 +2,12 @@
 console.log('mobile-register.js');
 
 onServerMsg = (data) => {
-    console.log(`got message from server: ${data.msg}`);
-    alert(data.msg);
+    console.log(`onServerMsg(${data.msg})`);  
 };
 
 goRegister = () => {
-    registerMobile(document.getElementById('nameInput').value, onServerMsg);
+    console.log(`goRegister()`);
+    let userName = document.getElementById('nameInput').value;
+    localStorage.setItem(LOCALSTORAGE_KEY_USERNAME, userName);
+    registerMobile(userName, onServerMsg);
 };

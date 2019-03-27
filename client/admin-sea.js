@@ -2,15 +2,16 @@
 console.log('admin-sea.js');
 
 onServerMsg = (data) => {
-    console.log(`got message from server: ${data.msg}`);
+    console.log(`onServerMsg(${data.msg})`);
 };
 
 onUserListUpdate = (data) => {
-    console.log(`user list update ${data.msg}`);
+    console.log(`onUserListUpdate(${data.msg})`);
     alert(`user list update ${data.msg}`);
 };
    
 gamePhase = () => {
+    console.log('gamePhase()');
     let coin = getRandom(2);
     let data = {
         gameName: 'sea',
