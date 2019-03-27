@@ -7,7 +7,7 @@ let admin = null;
 let users = [];
 app.use(express.static('client'));
 app.get('/', (req, res) => {
-    res,send('Hi from server');
+    res, send('Hi from server');
 });
 console.log(`--------------------------------------------------------------------------------`);
 console.log(`server listening on port ${port}...`);
@@ -25,13 +25,14 @@ sendMsgToAdmin = (channel, data) => {
     }
 };
 
+
 let sendMsgToAllMobiles = (socket, channel, data) => {
     console.log(`sending msg "${data.msg}" to all mobiles...`);
     socket.broadcast.emit(channel, data);
 };
 
 let updateAdminAboutUserList = () => {
-    sendMsgToAdmin('server-msg-user-list-update', {msg: clientsMgr.getUsers()});
+    sendMsgToAdmin('server-msg-user-list-update', { msg: clientsMgr.getUsers() });
 };
 
 io.on('connection', (socket) => {
@@ -42,25 +43,41 @@ io.on('connection', (socket) => {
             clientsMgr.registerAdmin(socket, data.userName);
         }
         else {
-            clientsMgr.registerUser(socket, data.userName);            
-        }        
+            clientsMgr.registerUser(socket, data.userName);
+        }
     });
 
     socket.on('disconnect', () => {
         if (clientsMgr.getAdmin() !== null && socket.id === clientsMgr.getAdmin().socket.id) {
             clientsMgr.unregsiterAdmin(socket);
         } else {
-            clientsMgr.unregisterUser(socket);          
-        }        
+            clientsMgr.unregisterUser(socket);
+        }
     });
-    
+
     socket.on('admin-msg', (data) => {
         console.log(`got message "${data.msg}" from admin`);
-        sendMsgToAllMobiles(socket, 'admin-msg', data);
+        if (data.userName) {
+            sendMsgToUser(data)
+        }
+        else {
+            sendMsgToAllMobiles(socket, 'admin-msg', data);
+        }
+
     });
 
     socket.on('mobile-msg', (data) => {
         console.log(`got message "${data.msg}" from mobile`);
         sendMsgToAdmin('client-msg', data);
     });
+
+    sendMsgToUser = (userName, data) => {
+        let usersList = clientsMgr.getUsers();
+        let user = _.find(usersList, (u) => {
+            return u.name === userName;
+        });
+        if (user && user.socket) {
+            user.socket.emit(data.msg, data);
+        }
+    };
 });
