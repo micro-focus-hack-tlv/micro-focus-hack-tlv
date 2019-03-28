@@ -14,11 +14,10 @@ seaGamePhase = () => {
         sea: coin === 2
     };
     if (isSeaGameOn && ++seaCounter < 20) {
-        broarcastToMobiles(data);
-        let audio = new Audio(`/sound/yam${seaCounter-1}.mp3`);
-        audio.volume = 1.0;
-        audio.play();
-        setTimeout(seaGamePhase, 3000);
+    	broarcastToMobiles(data);
+    	let waitTime = 1000+  (Math.floor(Math.random() * 2000));
+    	console.log('waiting time: '+waitTime);
+        setTimeout(seaGamePhase, waitTime);
     }
 };
 
