@@ -7,21 +7,72 @@ body {
 	background-color: #445;
 }
 
-.admin-games-container {
-	padding: 20px;
+.admin-wrapper {
+	height: 100%;
 }
 
-.admin-game-btn {
-	outline: none;
-	margin: 10px 10px;
-	border: none;
-	border-radius: 10px;
-	background: #cc6600;
-	padding: 10px 20px;
-	color: #fff;
-	font-size: 30px;		
+.admin-games-container {
+	height: 100%;
+	background-color: #333;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+}
+
+.games {
+	flex: 1 1 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+}
+
+.game {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	background: orange;	
+	text-align: center;
+}
+
+.game:nth-child(1) {
+	background-color: red;
+}
+.game:nth-child(2) {
+	background-color: orange;
+}
+.game:nth-child(3) {
+	background-color: yellow;
+}
+.game:nth-child(4) {
+	background-color: lime;
+}
+.game:nth-child(5) {
+	background-color: green;
+}
+.game:nth-child(6) {
+	background-color: blue;
+}
+.game:nth-child(7) {
+	background-color: purple;
+}
+.game:nth-child(8) {
+	background-color: fuchsia;
+}
+
+.game-img {
+	flex: 1 1 auto;
+	width: 100px;
+    margin: 20% auto;
+}
+
+.game-name {
+	font-family: Alef-Bold, arial, sans-serif;
+	padding-bottom: 20px;
+	font-size: 30px;
+	color: #000;
 }
 
 .admin-users-container {
-    padding: 20px;
+	flex: 0 0 100px;
+	background: teal;
 }

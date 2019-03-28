@@ -18,51 +18,36 @@
 </head>
 
 <body class="admin">
-    <div id="admin-games-container" class="admin-games-container">
-        <div>
-            <h1>GAME LIST</h1>
-        </div>
-        <div dir="rtl" class="admin-game-list">
-            <div class="first-row">
-                <button onclick="startMimeGame()" class="admin-game-btn">פנטומימה</button>
-                <button onclick="startSeaGame()" class="admin-game-btn">ים-יבשה</button>
-                <button onclick="" class="admin-game-btn">תופסת</button>
+    <div class="admin-wrapper">
+        <div id="admin-games-container" class="admin-games-container">
+            <div class="games">
+                <div class="game" onclick=""><img class="game-img" src="img/ball.svg"/><span class="game-name">תופסת</span></div>
+                <div class="game" onclick=""><img class="game-img" src="img/ball.svg"/><span class="game-name">מחבואים</span></div>
+                <div class="game" onclick="startMimeGame()"><img class="game-img" src="img/ball.svg"/><span class="game-name">פנטומימה</span></div>
+                <div class="game" onclick="startSeaGame()"><img class="game-img" src="img/ball.svg"/><span class="game-name">ים יבשה</span></div>
+                <div class="game" onclick=""><img class="game-img" src="img/ball.svg"/><span class="game-name">דג מלוח</span></div>
+                <div class="game" onclick=""><img class="game-img" src="img/ball.svg"/><span class="game-name">מחניים</span></div>
+                <div class="game" onclick=""><img class="game-img" src="img/ball.svg"/><span class="game-name">מקלות</span></div>
+                <div class="game" onclick=""><img class="game-img" src="img/ball.svg"/><span class="game-name">חפש את המטמון</span></div>
             </div>
-            <div class="second-row">
-                <button onclick="" class="admin-game-btn">מצא את המטמון</button>
-                <button onclick="" class="admin-game-btn">חם-קר</button>
-                <button onclick="" class="admin-game-btn">סיימון</button>
-            </div>
-
+            <div id="admin-users-container" class="admin-users-container">
+                <div id="user-names"></div>
+            </div>        
         </div>
-        <div>
-            <h1>PLAYERS</h1>
-        </div>
-    </div>
-    <div id="admin-users-container" class="admin-users-container">
-        <div id="user-names">
-        </div>
-    </div>
-    <div id="admin-mime-container" class="admin-mime-container hide">
-        <div>
+        <div id="admin-mime-container" class="admin-mime-container hide">
             <h1>ADMIN MIME</h1>
-        </div>
-        <div>
             <button onclick="stopMimeGame()">Stop Game</button>
         </div>
-    </div>
-    <div id="admin-sea-container" class="admin-sea-container hide">
-        <div>
+        <div id="admin-sea-container" class="admin-sea-container hide">
             <h1>ADMIN SEA</h1>
-        </div>
-        <div>
             <button onclick="stopSeaGame()">Stop Game</button>
-        </div>
-        <div>
-            <h1>רשימת שחקנים</h1>
-            <div id="users"></div>
+            <div>
+                <h1>רשימת שחקנים</h1>
+                <div id="users"></div>
+            </div>
         </div>
     </div>
+    
 </body>
 
 </html>
