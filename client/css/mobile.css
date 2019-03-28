@@ -57,10 +57,11 @@ html {
     background-color: #F04184;
     height: 100%;
     width: 100%;
-    background-image: url("../img/waitLogo.png");
+    background-image: url("../img/spaceship.svg");
     background-repeat: no-repeat;
     background-position: top;
     background-position-y: 282px;
+    background-size: 50vw;
 }
 
 /* .mobile {
