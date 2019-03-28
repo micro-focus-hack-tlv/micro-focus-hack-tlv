@@ -78,10 +78,10 @@ html {
 }
 
 .image-background {
-    background-size: 30vw;
+    background-size: 47vw;
     background-repeat: no-repeat;
     background-position: top;
-    background-position-y: 420px;
+    background-position-y: 279px;
 }
 /* .mobile {
     background-image: url("../img/background.png");
