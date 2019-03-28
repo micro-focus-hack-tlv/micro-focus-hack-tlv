@@ -14,7 +14,7 @@ seaGamePhase = () => {
         sea: coin === 2
     };
     if (isSeaGameOn && ++seaCounter < 20) {
-        broarcastToMobiles(data);
+    	broarcastToMobiles(data);
         setTimeout(seaGamePhase, 3000);
     }
 };
@@ -50,10 +50,9 @@ stopSeaGame = () => {
 userSeaGameOver = (name) => {
 
     console.log('Game over from user ' + name);
-    seaUsers = _.remove(seaUsers, (u) => {
+    _.remove(seaUsers, (u) => {
         return u === name;
     });
-
 
     let namesElement = document.getElementById('users');
     for (let i = 0; i < namesElement.childNodes.length; i++) {
@@ -63,17 +62,19 @@ userSeaGameOver = (name) => {
             namesElement.childNodes[i].innerText = '';
         }
     }
+
     if (seaUsers.length === 1){
         isSeaGameOn = false;
         weHaveAWinner(seaUsers[0]);
-        return;
     }
 };
 
 weHaveAWinner = (winnerName) =>{
-    let won = 'ניצחון עבור: ';
+    let won = 'המנצח: ';
     let namesElement = document.getElementById('users');
-    namesElement.childNodes[0].innerText = won + ' '+ winnerName;
-    namesElement.style.textAlign = 'right';
-    setTimeout(stopGame, 10000);
+	while (namesElement.hasChildNodes()) {
+        namesElement.removeChild(namesElement.firstChild);
+    }
+	namesElement.innerText = won + ' '+ winnerName;
+    setTimeout(stopGame, 5000);
 }
