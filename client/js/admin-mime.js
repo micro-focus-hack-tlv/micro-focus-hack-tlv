@@ -40,7 +40,19 @@ startMimeGame = () => {
     console.log('startMimeGame()');
     hideAllConatiners();
     showContainer('div.admin-mime-container');
-    startGame('start-game-mime');
+    broarcastToMobiles({ msg: 'start-game-mime' });
+    playNextMimeTurn();
+};
+
+playNextMimeTurn = () => { 
+    let selectedUserIndex = Math.floor(Math.random() * userNames.length);
+    let phaseData = getGamePhase();
+    if (phaseData.msg === 'mime-game-ended') {
+        stopGame();
+        return;
+    }
+    phaseData.userName = userNames[selectedUserIndex];
+    broarcastToMobiles(phaseData);
 };
 
 setPharses();

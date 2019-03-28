@@ -1,6 +1,8 @@
 
 console.log('admin-sea.js');
 
+let seaCounter = 0;
+
 seaGamePhase = () => {
     console.log('gamePhase()');
     let coin = Math.floor(Math.random() * 2) + 1;
@@ -11,15 +13,16 @@ seaGamePhase = () => {
         sea: coin === 2
     };
     broarcastToMobiles(data);
+    if (++seaCounter < 30) {
+        setTimeout(seaGamePhase, 2000);
+    }
 };
 
 startSeaGame = () => {
     console.log('startSeaGame()');
     hideAllConatiners();
     showContainer('div.admin-sea-container');
-    startGame('start-game-sea', seaGamePhase);
-    for (let i = 0; i < 10; i++) {
-        setTimeout(seaGamePhase, 50);
-    }
-
+    seaCounter = 0;
+    broarcastToMobiles({ msg: 'start-game-sea' });
+    seaGamePhase();
 };

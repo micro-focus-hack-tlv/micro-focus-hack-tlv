@@ -31,24 +31,6 @@ broarcastToMobiles = (data) => {
     socket.emit('admin-msg', data);
 };
 
-startGame = (msg) => {
-    console.log(`startGame(${msg})`);
-    broarcastToMobiles({ msg: msg });
-    playNextTurn();
-};
-
-playNextTurn = (msg) => { 
-    console.log(`${msg}`);
-    let selectedUserIndex = Math.floor(Math.random() * userNames.length);
-    let phaseData = getGamePhase();
-    if (phaseData.msg === 'mime-game-ended'){
-        stopGame();
-        return;
-    }
-    phaseData.userName = userNames[selectedUserIndex];
-    broarcastToMobiles(phaseData);
-};
-
 stopGame = () => {
     hideAllConatiners();
     showContainer('div#admin-games-container');
