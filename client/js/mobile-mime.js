@@ -17,6 +17,10 @@ showMessagesFromMimeGame = (data) => {
 		document.getElementById("mime-header").innerText = 'יאללה ' + userName +'\n!...אתה מציג';
         document.getElementById('phrase').innerText = data.selectedPhrase;
         document.getElementById('phraseFoundButton').style.visibility = "visible";
+        document.getElementById('mime-center-circle').style.visibility = "visible";
+        document.getElementById('mobile-mime-container').classList.remove('mime-image-background');
+        document.getElementById('mobile-mime-container').classList.remove('image-background');
+        document.getElementById("mime-header").classList.remove('mime-not-chosen');
     } else {
         document.getElementById("mime-header").innerText = data.userName + ' מציג\n אתם מנחשים';
         document.getElementById('phraseFoundButton').style.visibility = "hidden";
