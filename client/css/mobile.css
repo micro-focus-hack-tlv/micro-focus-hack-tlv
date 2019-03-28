@@ -88,6 +88,13 @@ html {
     background-repeat: no-repeat;
 } */
 
+.mobile-pick-next-player {
+    background-color: #b53c54;
+    height: 100%;
+    width: 100%;
+
+}
+
 .mime-center-circle {
     width: 90vw;
     border-radius: 50vw;
