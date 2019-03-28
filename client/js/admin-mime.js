@@ -55,4 +55,8 @@ playNextMimeTurn = () => {
     broarcastToMobiles(phaseData);
 };
 
+stopMimeGame = () => {
+    stopGame();
+};
+
 setPharses();
