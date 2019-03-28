@@ -4,7 +4,7 @@ html {
 }
 
 body {
-	background-color: #445;
+	background-color: #fff;
 }
 
 .admin-wrapper {
@@ -18,10 +18,10 @@ body {
 
 .games {
 	position: absolute;
-	top: 20px;
-	left: 20px;
-	right: 20px;
-	bottom: 140px;
+	top: 30px;
+	left: 30px;
+	right: 30px;
+	bottom: 160px;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-template-rows: 1fr 1fr;
@@ -69,15 +69,25 @@ body {
 .game-name {
 	font-family: Alef-Bold, arial, sans-serif;
 	padding-bottom: 20px;
-	font-size: 30px;
+	font-size: 40px;
 	color: #000;
 }
 
 .user-names {
 	position: absolute;
-	left: 20px;
-	right: 20px;
-	bottom: 20px;
+	left: 30px;
+	right: 30px;
+	bottom: 30px;
 	height: 100px;
-	background: teal;
+	line-height: 100px;
+	background: #1b586b;	
+	padding-right: 40px;
+	font-family: Alef-Bold, arial, sans-serif;
+	font-size: 40px;	
+	color: #fff;	
+}
+
+.user-name {
+	display: inline-block;
+	margin-left: 100px;
 }
