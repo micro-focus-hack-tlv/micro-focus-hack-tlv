@@ -3,9 +3,9 @@ html {
     font-size: 14px;
 }
 
-body {
+/* body {
     background-color: #F04184;
-}
+} */
 
 .name-input {
     border: none;
@@ -26,6 +26,9 @@ body {
     justify-content: center;
     text-align: right;
     align-items: center;
+    background-color: #F04184;
+    background-image: url("../img/background.png");
+    background-repeat: no-repeat;
 }
 
 .register-button {
@@ -41,9 +44,14 @@ body {
 
 .mobile-wait-container {
     padding: 20px;
-}
-
-.mobile {
+    background-color: #F04184;
+    height: 100%;
+    width: 100%;
     background-image: url("../img/background.png");
     background-repeat: no-repeat;
 }
+
+/* .mobile {
+    background-image: url("../img/background.png");
+    background-repeat: no-repeat;
+} */
