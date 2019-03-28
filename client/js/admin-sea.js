@@ -71,8 +71,8 @@ userSeaGameOver = (name) => {
 
 weHaveAWinner = (winnerName) =>{
     let won = 'המנצח: ';
-    let namesElement = document.getElementById('users');
-	while (namesElement.hasChildNodes()) {
+	let namesElement = document.getElementById('users');
+    while (namesElement.hasChildNodes()) {
         namesElement.removeChild(namesElement.firstChild);
     }
 	namesElement.innerText = won + ' '+ winnerName;
