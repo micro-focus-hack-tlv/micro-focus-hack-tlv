@@ -13,8 +13,8 @@ seaGamePhase = () => {
         land: coin === 1,
         sea: coin === 2
     };
-    broarcastToMobiles(data);
     if (isSeaGameOn && ++seaCounter < 20) {
+        broarcastToMobiles(data);
         setTimeout(seaGamePhase, 3000);
     }
 };
@@ -38,9 +38,7 @@ startSeaGame = () => {
         namesElement.appendChild(elm);
     });
 
-    broarcastToMobiles({
-        msg: 'start-game-sea'
-    });
+    broarcastToMobiles({msg: 'start-game-sea'});
     seaGamePhase();
 };
 
@@ -65,18 +63,17 @@ userSeaGameOver = (name) => {
             namesElement.childNodes[i].innerText = '';
         }
     }
-    if (seaUsers.length === 1) {
+    if (seaUsers.length === 1){
+        isSeaGameOn = false;
         weHaveAWinner(seaUsers[0]);
         return;
     }
 };
 
-weHaveAWinner = (winnerName) => {
+weHaveAWinner = (winnerName) =>{
     let won = 'ניצחון עבור: ';
     let namesElement = document.getElementById('users');
-    while (namesElement.hasChildNodes()) {
-        namesElement.removeChild(namesElement.firstChild);
-    }
-    namesElement.innerText = won + ' ' + winnerName;
+    namesElement.childNodes[0].innerText = won + ' '+ winnerName;
+    namesElement.style.textAlign = 'right';
     setTimeout(stopGame, 10000);
 }
