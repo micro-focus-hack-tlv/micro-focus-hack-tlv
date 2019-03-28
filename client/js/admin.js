@@ -62,8 +62,7 @@ findNextPlayer = () =>{
 
 stopGame = () => {
     hideAllConatiners();
-    showContainer('div#admin-games-container');
-    showContainer('div#admin-users-container');
+    showContainer('div#admin-main-container');
     broarcastToMobiles({ msg: 'stop-game' });
 };
 
