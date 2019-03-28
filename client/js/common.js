@@ -5,8 +5,8 @@ const SERVER_PORT = 4242;
 let socket;
 let userName;
 
-connectToServer = (userName) => {
-    userName = userName;
+connectToServer = (userName1) => {
+    userName = userName1;
     if (!socket) {
         console.log(`connecting to server...`);
         socket = io.connect(`http://${SERVER_ADDRESS}:${SERVER_PORT}`);        
