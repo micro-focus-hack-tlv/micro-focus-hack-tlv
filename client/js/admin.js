@@ -77,9 +77,10 @@ onUserListUpdate = (data) => {
         namesElement.removeChild(namesElement.firstChild);
     }
     userNames.forEach((user) => {
-        var liElement = document.createElement('div');
-        liElement.innerText = user;
-        namesElement.appendChild(liElement);
+        var elm = document.createElement('div');
+        elm.classList.add('user-name');
+        elm.innerText = user;
+        namesElement.appendChild(elm);
     });
 };
 
