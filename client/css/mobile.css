@@ -58,12 +58,18 @@ html {
     height: 100%;
     width: 100%;
     background-image: url("../img/spaceship.svg");
+}
+
+.mime-image-background {
+    background-image: url("../img/masks.svg");
+}
+
+.image-background {
+    background-size: 50vw;
     background-repeat: no-repeat;
     background-position: top;
     background-position-y: 282px;
-    background-size: 50vw;
 }
-
 /* .mobile {
     background-image: url("../img/background.png");
     background-repeat: no-repeat;
