@@ -16,6 +16,8 @@ registerAdmin = (onServerMsgCallback, onUserListUpdateCallback) => {
         console.log(`on.mobile-msg: ${data.msg}`);
         if (data.msg === 'turn ended'){
             playNextTurn();
+        } else if (data.msg === 'turn failed'){ //for sea game - user failed
+            userSeaGameOver(data.userName);
         }
     });
 

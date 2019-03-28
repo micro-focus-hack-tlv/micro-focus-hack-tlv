@@ -22,3 +22,12 @@ showMessagesFromSeaGame = (data) => {
 		audio.play(); 
     }
 };
+
+onSeaFailed = () => {
+    console.log('Turn failed');
+    let data = {
+        msg: 'turn failed',
+        userName: userName
+    };
+    sendMobileMsgToServer(data);
+};

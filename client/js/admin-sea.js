@@ -46,4 +46,14 @@ stopSeaGame = () => {
 
 userSeaGameOver = (name) => {
     users = _.remove(users, name);
+
+    let namesElement = document.getElementById('users');
+    while (namesElement.hasChildNodes()) {
+        namesElement.removeChild(namesElement.firstChild);
+    }
+    users.forEach((user) => {
+        var liElement = document.createElement('div');
+        liElement.innerText = user;
+        namesElement.appendChild(liElement);
+    });
 };
