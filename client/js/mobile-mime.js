@@ -18,10 +18,11 @@ showMessagesFromMimeGame = (data) => {
         document.getElementById('phrase').innerText = data.selectedPhrase;
         document.getElementById('phraseFoundButton').style.visibility = "visible";
     } else {
-        document.getElementById("mime-header").innerText = userName + ' מציג אתם מנחשים';
+        document.getElementById("mime-header").innerText = data.userName + ' מציג אתם מנחשים';
         document.getElementById('phraseFoundButton').style.visibility = "hidden";
         document.getElementById('mime-center-circle').style.visibility = "hidden";
         document.getElementById('mobile-mime-container').classList.add('mime-image-background');
         document.getElementById('mobile-mime-container').classList.add('image-background');
+        document.getElementById("mime-header").classList.add('mime-not-chosen');
     }
 };

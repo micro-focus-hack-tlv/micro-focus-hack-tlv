@@ -66,6 +66,12 @@ html {
     background-image: url("../img/masks.svg");
 }
 
+.mime-not-chosen {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
 .image-background {
     background-size: 50vw;
     background-repeat: no-repeat;
