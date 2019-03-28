@@ -57,13 +57,24 @@ io.on('connection', (socket) => {
 
     socket.on('admin-msg', (data) => {
         console.log(`got message "${data.msg}" from admin`);
-        if (data.userName) {
-            console.log(`found userName: `+data.userName);
-            sendMsgToUser(data.userName, data);
-        }
-        else {
+        console.log('data', data);
+        console.log('users', users);
+        // if(data.msg === 'mime-game-msg') {
+        //     _.forEach(users, user => {
+        //         if(user === data.userName) {
+        //             sendMsgToUser(data.userName, data);
+        //         } else {
+        //             sendMsgToUser(data.userName, 'בהצלחה');
+        //         }
+        //     }
+        // }
+        // if (data.userName) {
+        //     console.log(`found userName: `+data.userName);
+        //     sendMsgToUser(data.userName, data);
+        // }
+        // else {
             sendMsgToAllMobiles(socket, 'admin-msg', data);
-        }
+        // }
 
     });
 

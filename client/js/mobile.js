@@ -4,7 +4,6 @@ console.log('mobile-common.js');
 registerMobile = (userName) => {
     console.log(`registerMobile(${userName})`);
     connectToServer(userName);
-
     socket.on('server-msg', (data) => {
         console.log(`onServerMsg(${data.msg})`);
         if (data.msg === 'stop-game') {
