@@ -1,4 +1,16 @@
 
 .admin-mime-container {
 	padding: 20px;
+	height: 100%;
+	background-color: #963f77;
+	background-repeat: no-repeat;
+	background-size: 400px;
+	background-position: center;
+	background-image: url(../img/masks.svg);
+}
+
+.admin-mime-header {
+	font-size: 100px;
+	text-align: center;
+	margin-top: 100px;
 }

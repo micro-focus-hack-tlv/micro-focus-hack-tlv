@@ -49,6 +49,8 @@ playNextTurn = (msg) => {
         return;
     }
     phaseData.userName = userNames[selectedUserIndex];
+    console.log('יאללה ' +  phaseData.userName);
+    document.getElementById('admin-mime-header').innerText = '!יאללה ' + phaseData.userName;
     broarcastToMobiles(phaseData);
 };
 
