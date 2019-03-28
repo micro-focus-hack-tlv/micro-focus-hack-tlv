@@ -93,11 +93,15 @@ body {
 }
 
 div#user-names::before {
-    content: "מחוברים:";
+	content: "מחוברים:";
+	position: relative;
+    top: 2px;
 }
 
 .user-name {
 	display: inline-block;
 	margin-right: 40px;
 	animation: appear-animation 1s linear;
+	position: relative;
+    top: 2px;
 }
