@@ -31,6 +31,33 @@ broarcastToMobiles = (data) => {
     socket.emit('admin-msg', data);
 };
 
+startGame = (msg) => {
+    console.log(`startGame(${msg})`);
+    broarcastToMobiles({ msg: msg });
+    playNextTurn();
+};
+
+playNextTurn = (msg) => { 
+    findNextPlayer();
+    console.log(`${msg}`);
+    let selectedUserIndex = Math.floor(Math.random() * userNames.length);
+    let phaseData = getGamePhase();
+    if (phaseData.msg === 'mime-game-ended'){
+        stopGame();
+        return;
+    }
+    phaseData.userName = userNames[selectedUserIndex];
+    broarcastToMobiles(phaseData);
+};
+
+findNextPlayer = () =>{
+    //send to server
+    let data={
+        msg : 'find-next-player'
+    };
+    socket.emit('admin-msg', data);    
+}
+
 stopGame = () => {
     hideAllConatiners();
     showContainer('div#admin-games-container');
