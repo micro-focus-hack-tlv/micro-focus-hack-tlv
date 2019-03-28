@@ -30,3 +30,9 @@ showMessagesFromMimeGame = (data) => {
         document.getElementById("mime-header").classList.add('mime-not-chosen');
     }
 };
+
+showBackgroundColor = () => {
+    console.log('game color: '+gameColor);
+    showContainer('div.mobile-pick-next-player');
+    document.getElementById('phraseFoundButton').style.visibility = "hidden";
+}
