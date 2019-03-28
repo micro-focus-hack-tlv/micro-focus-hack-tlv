@@ -63,13 +63,13 @@ body {
 .game-img {
 	flex: 1 1 auto;
 	width: 100px;
-    margin: 20% auto 0 auto;
+    margin: 25% auto 0 auto;
 }
 
 .game-name {
 	font-family: Alef-Bold, arial, sans-serif;
 	padding-bottom: 20px;
-	font-size: 40px;
+	font-size: 45px;
 	color: #000;
 }
 
@@ -87,7 +87,11 @@ body {
 	color: #fff;	
 }
 
+div#user-names::before {
+    content: "מחוברים: ";
+}
+
 .user-name {
 	display: inline-block;
-	margin-left: 100px;
+	margin-right: 100px;
 }
