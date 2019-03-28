@@ -39,15 +39,15 @@ html {
 .mobile-button {
     position: fixed;
     bottom: 150px;
-    border: none;
     border-radius: 100px;
-    height: 110px;
-    width: 80vw;
-    left: calc(50% - 40vw);
-    font-size: 70px;
+    height: 130px;
+    width: 60vw;
+    left: calc(50% - 30vw);
+    font-size: 60px;
     padding-top: 10px;
-    color: #000;
-    background-color: #f6cd5b;
+    color: #fff;
+    border: 2px solid #fff;
+    background-color: #003a74;
     font-family: gan, Alef-Regular, arial, sans-serif;
 }
 
@@ -78,10 +78,10 @@ html {
 }
 
 .image-background {
-    background-size: 50vw;
+    background-size: 30vw;
     background-repeat: no-repeat;
     background-position: top;
-    background-position-y: 282px;
+    background-position-y: 420px;
 }
 /* .mobile {
     background-image: url("../img/background.png");
