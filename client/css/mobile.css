@@ -67,3 +67,28 @@ html {
     background-image: url("../img/background.png");
     background-repeat: no-repeat;
 } */
+
+.mime-center-circle {
+    width: 90vw;
+    border-radius: 50vw;
+    height: 90vw;
+    background-color: #CBA0BB;
+    position: fixed;
+    top: calc(50vh - 45vw);
+    left: 5vw;
+}
+
+.mime-phrase {
+    height: 100%;
+    font-size: 100px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 130px;
+}
+
+.mime-header {
+    font-size: 100px;
+    text-align: center;
+    color: white
+}
