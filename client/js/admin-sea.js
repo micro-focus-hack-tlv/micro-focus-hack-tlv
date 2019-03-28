@@ -38,7 +38,9 @@ startSeaGame = () => {
         namesElement.appendChild(elm);
     });
 
-    broarcastToMobiles({msg: 'start-game-sea'});
+    broarcastToMobiles({
+        msg: 'start-game-sea'
+    });
     seaGamePhase();
 };
 
@@ -63,16 +65,18 @@ userSeaGameOver = (name) => {
             namesElement.childNodes[i].innerText = '';
         }
     }
-    if (seaUsers.length === 1){
+    if (seaUsers.length === 1) {
         weHaveAWinner(seaUsers[0]);
         return;
     }
 };
 
-weHaveAWinner = (winnerName) =>{
+weHaveAWinner = (winnerName) => {
     let won = 'ניצחון עבור: ';
     let namesElement = document.getElementById('users');
-    namesElement.childNodes[0].innerText = won + ' '+ winnerName;
-    namesElement.style.textAlign = 'right';
+    while (namesElement.hasChildNodes()) {
+        namesElement.removeChild(namesElement.firstChild);
+    }
+    namesElement.innerText = won + ' ' + winnerName;
     setTimeout(stopGame, 10000);
 }
