@@ -100,10 +100,14 @@ html {
     display: flex;
     justify-content: center;
     padding: 130px;
+    text-align: center;
 }
 
 .mime-header {
     font-size: 100px;
+    color: white;
+    display: flex;
+    justify-content: center;
     text-align: center;
-    color: white
+    margin-top: 45px;
 }
