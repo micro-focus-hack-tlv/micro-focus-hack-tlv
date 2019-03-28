@@ -13,8 +13,13 @@ showMessagesFromMimeGame = (data) => {
     console.log('MIME');
     console.log('Phrase: ' + data.selectedPhrase);
 
-    let namesElement = document.getElementById('phrase');
-    namesElement.innerHTML = data.selectedPhrase;
+    if(data.userName === userName) {
+        document.getElementById('phrase').innerText = data.selectedPhrase;
+        document.getElementById('phraseFoundButton').style.visibility = "visible";
+    } else {
+        document.getElementById('phrase').innerText = 'בהצלחה';
+        document.getElementById('phraseFoundButton').style.visibility = "hidden";
+    }
 };
 
 showBackgroundColor = () => {
