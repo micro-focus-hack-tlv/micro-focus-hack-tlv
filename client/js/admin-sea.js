@@ -13,8 +13,8 @@ seaGamePhase = () => {
         sea: coin === 2
     };
     broarcastToMobiles(data);
-    if (++seaCounter < 30) {
-        setTimeout(seaGamePhase, 2000);
+    if (++seaCounter < 20) {
+        setTimeout(seaGamePhase, 3000);
     }
 };
 
