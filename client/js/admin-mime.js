@@ -10,6 +10,10 @@ setPharses = () => {
     listOfPhrases.push('הנסיכה הקסומה');
     listOfPhrases.push('רובין הוד');
     listOfPhrases.push('רובוטריקים');
+    listOfPhrases.push('מלחמת הכוכבים');
+    listOfPhrases.push('ביג');
+    listOfPhrases.push('מת לחיות');
+    listOfPhrases.push('דרדסים');
 };
 
 getGamePhase = () => {
