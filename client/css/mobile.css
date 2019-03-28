@@ -20,15 +20,18 @@ html {
 .mobile-register-container {
     height: 100%;
     width: 100%;
+    background-color: #F04184;
+    background-image: url("../img/background.png");
+    background-repeat: no-repeat;
+}
+
+.mobile-font {
     display: flex;
     flex-direction: column;
     font-size: 100px;
     justify-content: center;
     text-align: right;
     align-items: center;
-    background-color: #F04184;
-    background-image: url("../img/background.png");
-    background-repeat: no-repeat;
 }
 
 .register-button {
@@ -47,8 +50,10 @@ html {
     background-color: #F04184;
     height: 100%;
     width: 100%;
-    background-image: url("../img/background.png");
+    background-image: url("../img/waitLogo.png");
     background-repeat: no-repeat;
+    background-position: top;
+    background-position-y: 282px;
 }
 
 /* .mobile {
