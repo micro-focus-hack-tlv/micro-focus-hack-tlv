@@ -105,3 +105,17 @@ position: relative;
 	position: relative;
     top: 2px;
 }
+
+.admin-button {
+    position: fixed;
+    bottom: 100px;
+    border: none;
+    border-radius: 100px;
+    height: 110px;
+    width: 40vw;
+    left: calc(50% - 20vw);
+    font-size: 100px;
+    color: #000;
+    background-color: #fff;
+    font-family: gan, Alef-Regular, arial, sans-serif;
+}
