@@ -59,13 +59,8 @@ io.on('connection', (socket) => {
         console.log(`got message "${data.msg}" from admin`);
         if (data.msg === 'find-next-player') {
             getNextPlayer(data);
-        } else if (data.userName) {
-            console.log(`got user ` + data.userName);
-            sendMsgToUser(data.userName, data);
         }
-        else {
-            sendMsgToAllMobiles(socket, 'admin-msg', data);
-        }
+        sendMsgToAllMobiles(socket, 'admin-msg', data);
 
     });
 
