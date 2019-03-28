@@ -3,6 +3,7 @@ console.log('admin-sea.js');
 
 let isSeaGameOn = false;
 let seaCounter = 0;
+let users = [];
 
 seaGamePhase = () => {
     console.log('gamePhase()');
@@ -25,6 +26,15 @@ startSeaGame = () => {
     showContainer('div.admin-sea-container');
     isSeaGameOn = true;
     seaCounter = 0;
+    users = userNames.slice();
+
+    let namesElement = document.getElementById('users');
+    users.forEach((user) => {
+        var liElement = document.createElement('div');
+        liElement.innerText = user;
+        namesElement.appendChild(liElement);
+    });
+
     broarcastToMobiles({ msg: 'start-game-sea' });
     seaGamePhase();
 };
@@ -32,4 +42,8 @@ startSeaGame = () => {
 stopSeaGame = () => {
     isSeaGameOn = false;
     stopGame();
+};
+
+userSeaGameOver = (name) => {
+    users = _.remove(users, name);
 };
