@@ -74,9 +74,8 @@ body {
 }
 
 .game-name {
-	font-family: Alef-Bold, arial, sans-serif;
 	padding-bottom: 20px;
-	font-size: 45px;
+	font-size: 30px;
 	color: #000;
 }
 
@@ -89,8 +88,7 @@ body {
 	line-height: 100px;
 	background: #1b586b;	
 	padding-right: 40px;
-	font-family: Alef-Bold, arial, sans-serif;
-	font-size: 40px;	
+	font-size: 30px;	
 	color: #fff;	
 }
 

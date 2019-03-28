@@ -8,6 +8,11 @@
 	src: url('../font/Alef-Bold.woff') format('woff');
 }
 
+@font-face {
+	font-family: "gan";
+	src: url('../font/ganclm_bold-webfont.woff') format('woff');
+}
+
 * {
 	box-sizing: border-box;
 }
@@ -17,7 +22,7 @@ html {
 	width: 100%;
 	margin: 0;
 	padding: 0;
-	font-family: Alef-Regular, arial, sans-serif;
+	font-family: gan, Alef-Regular, arial, sans-serif;
 	font-size: 16px;
 }
 
@@ -29,10 +34,6 @@ body {
 	padding: 0;	
 	color: black;
 	background-color: #000;
-}
-
-b {
-	font-family: Alef-Bold, arial, sans-serif;
 }
 
 .hide {
