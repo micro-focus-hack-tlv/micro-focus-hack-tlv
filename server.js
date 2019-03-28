@@ -57,24 +57,15 @@ io.on('connection', (socket) => {
 
     socket.on('admin-msg', (data) => {
         console.log(`got message "${data.msg}" from admin`);
-        console.log('data', data);
-        console.log('users', users);
-        // if(data.msg === 'mime-game-msg') {
-        //     _.forEach(users, user => {
-        //         if(user === data.userName) {
-        //             sendMsgToUser(data.userName, data);
-        //         } else {
-        //             sendMsgToUser(data.userName, 'בהצלחה');
-        //         }
-        //     }
-        // }
-        // if (data.userName) {
-        //     console.log(`found userName: `+data.userName);
-        //     sendMsgToUser(data.userName, data);
-        // }
-        // else {
+        if (data.msg === 'find-next-player') {
+            getNextPlayer(data);
+        } else if (data.userName) {
+            console.log(`got user ` + data.userName);
+            sendMsgToUser(data.userName, data);
+        }
+        else {
             sendMsgToAllMobiles(socket, 'admin-msg', data);
-        // }
+        }
 
     });
 
@@ -83,13 +74,22 @@ io.on('connection', (socket) => {
         sendMsgToAdmin('client-msg', data);
     });
 
+    getNextPlayer = (data) => {
+        data.msg = 'admin-msg';
+        data.showBackgroudColor = true;
+        console.log('send color msg to user');
+        let usersList = clientsMgr.getUsers();
+        console.log('send msg to user: ' + usersList[0].name);
+        sendMsgToUser(usersList[0].name, data);
+    }
+
     sendMsgToUser = (userName, data) => {
         let usersList = clientsMgr.getUsers();
         let user = _.find(usersList, (u) => {
             return u.name === userName;
         });
         if (user && user.socket) {
-            console.log('sending msg to: '+userName);
+            console.log('sending msg to: ' + userName + ' with data: ' + data.msg);
             user.socket.emit(data.msg, data);
         }
     };

@@ -17,6 +17,7 @@ registerMobile = (userName) => {
 
 
     socket.on('admin-msg', (data) => {
+        console.log('****msg from admin: ' + data.msg);
         if (data.msg === 'start-game-mime') {
             startMimeGame();
         } else if (data.msg === 'start-game-sea') {
@@ -27,6 +28,8 @@ registerMobile = (userName) => {
             showMessagesFromSeaGame(data);
         } else if (data.msg === 'stop-game') {
             waitForGame();
+        } else if (data.showBackgroudColor) {
+            showBackgroundColor();
         }
     });
 

@@ -16,6 +16,8 @@ registerAdmin = (onServerMsgCallback, onUserListUpdateCallback) => {
         console.log(`on.mobile-msg: ${data.msg}`);
         if (data.msg === 'turn ended'){
             playNextTurn();
+        } else if (data.msg === 'turn failed'){ //for sea game - user failed
+            userSeaGameOver(data.userName);
         }
     });
 
@@ -30,6 +32,33 @@ broarcastToMobiles = (data) => {
     console.log(`broarcastToMobiles(${data.msg})`);
     socket.emit('admin-msg', data);
 };
+
+startGame = (msg) => {
+    console.log(`startGame(${msg})`);
+    broarcastToMobiles({ msg: msg });
+    playNextTurn();
+};
+
+playNextTurn = (msg) => { 
+    findNextPlayer();
+    console.log(`${msg}`);
+    let selectedUserIndex = Math.floor(Math.random() * userNames.length);
+    let phaseData = getGamePhase();
+    if (phaseData.msg === 'mime-game-ended'){
+        stopGame();
+        return;
+    }
+    phaseData.userName = userNames[selectedUserIndex];
+    broarcastToMobiles(phaseData);
+};
+
+findNextPlayer = () =>{
+    //send to server
+    let data={
+        msg : 'find-next-player'
+    };
+    socket.emit('admin-msg', data);    
+}
 
 stopGame = () => {
     hideAllConatiners();
