@@ -9,5 +9,8 @@ startMimeGame = () => {
 
 showMessagesFromMimeGame = (data) => {
     console.log('MIME');
-    console.log('Phrase: ' + data.selectedPhrase)
+    console.log('Phrase: ' + data.selectedPhrase);
+
+    let namesElement = document.getElementById('phrase');
+    namesElement.innerHTML = data.selectedPhrase;
 };
