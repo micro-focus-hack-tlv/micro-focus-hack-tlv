@@ -29,9 +29,10 @@ startSeaGame = () => {
 
     let namesElement = document.getElementById('users');
     seaUsers.forEach((user) => {
-        var liElement = document.createElement('div');
-        liElement.innerText = user;
-        namesElement.appendChild(liElement);
+        var elm = document.createElement('div');
+        elm.classList.add("user-name");
+        elm.innerText = user;
+        namesElement.appendChild(elm);
     });
 
     broarcastToMobiles({msg: 'start-game-sea'});
