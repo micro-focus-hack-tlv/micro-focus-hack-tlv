@@ -6,10 +6,10 @@ let rounds = 0;
 
 setPharses = () => {
     console.log('setPharses()');
-    listOfPhrases.push('house');
-    listOfPhrases.push('fish');
-    listOfPhrases.push('dog');
-    listOfPhrases.push('table');
+    listOfPhrases.push('בחזרה לעתיד');
+    listOfPhrases.push('הנסיכה הקסומה');
+    listOfPhrases.push('רובין הוד');
+    listOfPhrases.push('רובוטריקים');
 };
 
 getGamePhase = () => {

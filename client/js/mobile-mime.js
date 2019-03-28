@@ -14,6 +14,7 @@ showMessagesFromMimeGame = (data) => {
     console.log('Phrase: ' + data.selectedPhrase);
 
     if(data.userName === userName) {
+        document.getElementById("mime-header").innerText = 'יאללה ' + userName +'\n!...אתה מציג';
         document.getElementById('phrase').innerText = data.selectedPhrase;
         document.getElementById('phraseFoundButton').style.visibility = "visible";
     } else {
