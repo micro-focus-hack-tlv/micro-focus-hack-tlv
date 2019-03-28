@@ -30,4 +30,5 @@ onSeaFailed = () => {
         userName: userName
     };
     sendMobileMsgToServer(data);
+    waitForGame();
 };

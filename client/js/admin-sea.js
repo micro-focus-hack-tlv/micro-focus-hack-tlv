@@ -1,9 +1,8 @@
-
 console.log('admin-sea.js');
 
 let isSeaGameOn = false;
 let seaCounter = 0;
-let users = [];
+let seaUsers = [];
 
 seaGamePhase = () => {
     console.log('gamePhase()');
@@ -26,16 +25,16 @@ startSeaGame = () => {
     showContainer('div.admin-sea-container');
     isSeaGameOn = true;
     seaCounter = 0;
-    users = userNames.slice();
+    seaUsers = userNames.slice();
 
     let namesElement = document.getElementById('users');
-    users.forEach((user) => {
+    seaUsers.forEach((user) => {
         var liElement = document.createElement('div');
         liElement.innerText = user;
         namesElement.appendChild(liElement);
     });
 
-    broarcastToMobiles({ msg: 'start-game-sea' });
+    broarcastToMobiles({msg: 'start-game-sea'});
     seaGamePhase();
 };
 
@@ -45,15 +44,16 @@ stopSeaGame = () => {
 };
 
 userSeaGameOver = (name) => {
-    users = _.remove(users, name);
+
+    console.log('Game over from user ' + name);
+    seaUsers = _.remove(seaUsers, name);
 
     let namesElement = document.getElementById('users');
-    while (namesElement.hasChildNodes()) {
-        namesElement.removeChild(namesElement.firstChild);
+    for (let i = 0; i < namesElement.childNodes.length; i++) {
+        console.log('current player: ' + namesElement.childNodes[i].innerText);
+        if (namesElement.childNodes[i].innerText === name) {
+            console.log('found failed player: ' + namesElement.childNodes[i].innerText);
+            namesElement.childNodes[i].innerText = '';
+        }
     }
-    users.forEach((user) => {
-        var liElement = document.createElement('div');
-        liElement.innerText = user;
-        namesElement.appendChild(liElement);
-    });
 };
