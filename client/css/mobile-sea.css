@@ -10,13 +10,3 @@
     text-align: right;
     align-items: center;
 }
-
-.failed-button {
-    border: none;
-    margin-top: 80px;
-    border-radius: 70px;
-    font-size: inherit;
-    padding-left: 100px;
-    padding-right: 100px;
-    font-family: inherit;
-}

@@ -3,10 +3,6 @@ html {
     font-size: 14px;
 }
 
-/* body {
-    background-color: #F04184;
-} */
-
 .name-input {
     border: none;
     border-bottom: 1px solid;
@@ -15,6 +11,7 @@ html {
     font-size: inherit;
     text-align: right;
     width: 50%;
+    color: #fff;
 }
 
 .mobile-register-container {
@@ -32,16 +29,21 @@ html {
     justify-content: center;
     text-align: right;
     align-items: center;
+    color: #fff;
 }
 
-.register-button {
+.mobile-button {
+    position: fixed;
+    bottom: 150px;
     border: none;
-    margin-top: 80px;
-    border-radius: 70px;
+    border-radius: 100px;
+    height: 110px;
+    width: 80vw;
+    left: calc(50% - 40vw);
     font-size: 100px;
-    padding-left: 150px;
-    padding-right: 150px;
-    font-family: inherit;
+    color: #000;
+    background-color: #fff;
+    font-family: gan, Alef-Regular, arial, sans-serif;
 }
 
 .phase-found-button {
