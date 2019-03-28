@@ -3,6 +3,7 @@ console.log('mobile-sea.js');
 let counter = 0;
 
 startSeaGame = () => {
+    counter = 0;
     console.log('startSeaGame()');
     hideAllConatiners();
     showContainer('div.mobile-sea-container');
