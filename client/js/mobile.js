@@ -28,6 +28,8 @@ registerMobile = (userName) => {
             showMessagesFromSeaGame(data);
         } else if (data.msg === 'stop-game') {
             waitForGame();
+        } else if (data.showBackgroudColor) {
+            showBackgroundColor();
         }
     });
 
