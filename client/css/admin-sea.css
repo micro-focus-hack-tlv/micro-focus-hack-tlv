@@ -15,7 +15,7 @@
 }
 
 .finish-container {
-	background-color: #963F77;
+	background-color: #db6263;
 	height: 100%;
     text-align: -webkit-center;
 }
@@ -37,4 +37,8 @@
 	display: flex;
 	text-align: center;
 	font-size: 40px;
+}
+
+.game-img {
+	width: 280px;
 }
