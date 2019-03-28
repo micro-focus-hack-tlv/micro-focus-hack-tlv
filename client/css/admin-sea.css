@@ -2,3 +2,38 @@
 .admin-sea-container {
 	padding: 20px;
 }
+
+.sea-container {
+	background-color: #26b3b4;
+	width: 50%;
+}
+
+.land-container {
+	background-color: #F6CD58;
+	width: 50%;
+}
+
+.finish-container {
+	background-color: #963F77;
+	height: 100%;
+    text-align: -webkit-center;
+}
+
+.finish-button {
+	width: 40%;
+    height: 100px;
+    border: none;
+    margin-top: 80px;
+    border-radius: 70px;
+    font-size: 70px;
+    padding-left: 100px;
+    padding-right: 100px;
+    font-family: inherit;
+}
+
+.sea-land-container {
+	height: 60%;
+	display: flex;
+	text-align: center;
+	font-size: 40px;
+}

@@ -14,7 +14,7 @@ showMessagesFromMimeGame = (data) => {
     console.log('Phrase: ' + data.selectedPhrase);
 
     if(data.userName === userName) {
-        document.getElementById("mime-header").innerText = 'יאללה ' + userName +'\n!...אתה מציג';
+		document.getElementById("mime-header").innerText = 'יאללה ' + userName +'\n!...אתה מציג';
         document.getElementById('phrase').innerText = data.selectedPhrase;
         document.getElementById('phraseFoundButton').style.visibility = "visible";
     } else {
@@ -22,8 +22,3 @@ showMessagesFromMimeGame = (data) => {
         document.getElementById('phraseFoundButton').style.visibility = "hidden";
     }
 };
-
-showBackgroundColor = () => {
-    console.log('game color: '+gameColor);
-    document.body.style.backgroundColor = gameColor;
-}

@@ -93,8 +93,8 @@ body {
 }
 
 div#user-names::before {
-	content: "מחוברים:";
-	position: relative;
+    content: "מחוברים:";
+position: relative;
     top: 2px;
 }
 

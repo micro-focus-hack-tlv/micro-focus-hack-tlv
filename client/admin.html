@@ -37,12 +37,18 @@
             <button onclick="stopMimeGame()">Stop Game</button>
         </div>
         <div id="admin-sea-container" class="admin-sea-container hide">
-            <h1>ADMIN SEA</h1>
-            <button onclick="stopSeaGame()">Stop Game</button>
-            <div>
-                <h1>רשימת שחקנים</h1>
-                <div id="users"></div>
+            <div class="sea-land-container">                
+                <div class="land-container">
+                    <h1>יבשה</h1>
+                </div>
+                <div class="sea-container">
+                    <h1>ים</h1>
+                </div>
             </div>
+            <div class="finish-container">
+                <button class="finish-button" onclick="stopSeaGame()">סיום</button>
+                <div id="users"></div>
+            </div>            
         </div>
     </div>
     
