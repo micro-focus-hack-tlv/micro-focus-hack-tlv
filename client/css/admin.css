@@ -27,7 +27,7 @@ body {
 	top: 20px;
 	left: 20px;
 	right: 20px;
-	bottom: 140px;
+	height: calc(100% - 145px);
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-template-rows: 1fr 1fr;
@@ -63,19 +63,19 @@ body {
 	background-color: #b53c54;
 }
 .game:nth-child(8) {
-	background-color: #c8c157;
+	back1ground-color: #c8c157;
 }
 
 .game-img {
 	flex: 1 1 auto;
-	width: 150px;
+	width: 100px; 
 	margin: 0 auto;
 	fill: #fff;
 }
 
 .game-name {
 	padding-bottom: 20px;
-	font-size: 30px;
+	font-size: 25px;
 	color: #000;
 }
 
@@ -112,8 +112,8 @@ position: relative;
     border: none;
     border-radius: 100px;
     height: 110px;
-    width: 40vw;
-    left: calc(50% - 20vw);
+    width: 30vw;
+    left: calc(50% - 15vw);
     font-size: 60px;
     padding-top: 10px;
     color: #fff;
