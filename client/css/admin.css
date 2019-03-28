@@ -7,13 +7,19 @@ body {
 	background-color: #fff;
 }
 
+@keyframes appear-animation {
+	from {opacity: 0;}
+	to {opacity: 1;}
+  }
+
 .admin-wrapper {
 	height: 100%;
 }
 
 .admin-main-container {
 	height: 100%;
-	position: relative;	
+	position: relative;
+	animation: appear-animation 1s linear;	
 }
 
 .games {
@@ -63,7 +69,8 @@ body {
 .game-img {
 	flex: 1 1 auto;
 	width: 100px;
-    margin: 25% auto 0 auto;
+	margin: 25% auto 0 auto;
+	fill: #fff;
 }
 
 .game-name {
@@ -93,5 +100,6 @@ div#user-names::before {
 
 .user-name {
 	display: inline-block;
-	margin-right: 100px;
+	margin-right: 40px;
+	animation: appear-animation 1s linear;
 }
