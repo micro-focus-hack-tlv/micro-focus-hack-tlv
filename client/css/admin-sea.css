@@ -2,20 +2,18 @@
 .admin-sea-container {
 	padding: 20px;
 	height: 100%;
+	background-color: #26b3b4;
 }
 
 .sea-container {
-	background-color: #26b3b4;
 	width: 50%;
 }
 
 .land-container {
-	background-color: #F6CD58;
 	width: 50%;
 }
 
 .finish-container {
-	background-color: #db6263;
 	height: 40%;
     text-align: -webkit-center;
 }

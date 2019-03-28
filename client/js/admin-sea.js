@@ -28,6 +28,9 @@ startSeaGame = () => {
     seaUsers = userNames.slice();
 
     let namesElement = document.getElementById('users');
+    while (namesElement.hasChildNodes()) {
+        namesElement.removeChild(namesElement.firstChild);
+    }
     seaUsers.forEach((user) => {
         var elm = document.createElement('div');
         elm.classList.add("user-name");

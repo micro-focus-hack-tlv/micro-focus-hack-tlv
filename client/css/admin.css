@@ -114,8 +114,10 @@ position: relative;
     height: 110px;
     width: 40vw;
     left: calc(50% - 20vw);
-    font-size: 100px;
-    color: #000;
-    background-color: #fff;
+    font-size: 60px;
+    padding-top: 10px;
+    color: #fff;
+    border: 2px solid #fff;
+    background-color: #003a74;
     font-family: gan, Alef-Regular, arial, sans-serif;
 }
