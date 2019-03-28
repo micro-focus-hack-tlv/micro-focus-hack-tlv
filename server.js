@@ -58,7 +58,8 @@ io.on('connection', (socket) => {
     socket.on('admin-msg', (data) => {
         console.log(`got message "${data.msg}" from admin`);
         if (data.userName) {
-            sendMsgToUser(data)
+            console.log(`found userName: `+data.userName);
+            sendMsgToUser(data.userName, data);
         }
         else {
             sendMsgToAllMobiles(socket, 'admin-msg', data);
@@ -77,6 +78,7 @@ io.on('connection', (socket) => {
             return u.name === userName;
         });
         if (user && user.socket) {
+            console.log('sending msg to: '+userName);
             user.socket.emit(data.msg, data);
         }
     };

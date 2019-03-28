@@ -8,9 +8,14 @@ registerMobile = (userName) => {
     socket.on('server-msg', (data) => {
         console.log(`onServerMsg(${data.msg})`);
         if (data.msg === 'stop-game') {
-            waitForGame();    
-        }      
+            waitForGame();
+        }
     });
+
+    socket.on('mime-game-msg', (data) => {
+        showMessagesFromMimeGame(data);
+    });
+
 
     socket.on('admin-msg', (data) => {
         if (data.msg === 'start-game-mime') {
@@ -18,14 +23,14 @@ registerMobile = (userName) => {
         } else if (data.msg === 'start-game-sea') {
             startSeaGame();
         } else if (data.msg === 'mime-game-msg') {
-            showMessagesFromMimeGame(data);            
+            showMessagesFromMimeGame(data);
         } else if (data.msg === 'sea-game-msg') {
-            showMessagesFromSeaGame(data);            
+            showMessagesFromSeaGame(data);
         } else if (data.msg === 'stop-game') {
-            waitForGame();    
+            waitForGame();
         }
     });
-    
+
     waitForGame();
 };
 
@@ -38,14 +43,14 @@ goRegister = () => {
 onTurnEnded = () => {
     console.log('Turn ended');
     let data = {
-        msg : 'turn ended'
+        msg: 'turn ended'
     };
     sendMobileMsgToServer(data);
 }
 
 waitForGame = () => {
     hideAllConatiners();
-    showContainer('div#mobile-wait-container');    
+    showContainer('div#mobile-wait-container');
 };
 
 sendMobileMsgToServer = (data) => {
