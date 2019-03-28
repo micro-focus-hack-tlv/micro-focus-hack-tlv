@@ -1,5 +1,5 @@
 
-const SERVER_ADDRESS = 'localhost';
+const SERVER_ADDRESS = '192.168.0.111';
 const SERVER_PORT = 4242;
 
 let socket;
