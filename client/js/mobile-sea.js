@@ -1,5 +1,6 @@
-
 console.log('mobile-sea.js');
+
+let counter = 0;
 
 startSeaGame = () => {
     console.log('startSeaGame()');
@@ -9,18 +10,19 @@ startSeaGame = () => {
 
 showMessagesFromSeaGame = (data) => {
     let numOfSoundPermutations = 3;
-    let rnd = Math.floor(Math.random()*numOfSoundPermutations);
+    let rnd = counter % numOfSoundPermutations; //Math.floor(Math.random()*numOfSoundPermutations);
     if (data.sea) {
         console.log('SEA');
         let audio = new Audio(`/sound/yam${rnd}.mp3`);
-		audio.volume = 1.0;
-		audio.play();   
+        audio.volume = 1.0;
+        audio.play();
     } else {
         console.log('LAND');
         let audio = new Audio(`/sound/yabasha${rnd}.mp3`);
-		audio.volume = 1.0;
-		audio.play(); 
+        audio.volume = 1.0;
+        audio.play();
     }
+    counter++;
 };
 
 onSeaFailed = () => {
