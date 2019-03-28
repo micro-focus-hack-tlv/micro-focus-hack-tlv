@@ -24,10 +24,10 @@ body {
 
 .games {
 	position: absolute;
-	top: 30px;
-	left: 30px;
-	right: 30px;
-	bottom: 160px;
+	top: 20px;
+	left: 20px;
+	right: 20px;
+	bottom: 140px;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-template-rows: 1fr 1fr;
@@ -82,9 +82,9 @@ body {
 
 .user-names {
 	position: absolute;
-	left: 30px;
-	right: 30px;
-	bottom: 30px;
+	left: 20px;
+	right: 20px;
+	bottom: 20px;
 	height: 100px;
 	line-height: 100px;
 	background: #1b586b;	
