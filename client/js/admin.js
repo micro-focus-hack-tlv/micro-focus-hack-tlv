@@ -12,9 +12,9 @@ registerAdmin = (onServerMsgCallback, onUserListUpdateCallback) => {
         onServerMsgCallback(data);
     });
 
-    socket.on('mobile-msg', (data) => {
+    socket.on('client-msg', (data) => {
         console.log(`on.mobile-msg: ${data.msg}`);
-        if (data.msg !== 'turn ended'){
+        if (data.msg === 'turn ended'){
             playNextTurn();
         }
     });
