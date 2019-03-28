@@ -68,7 +68,7 @@ body {
 
 .game-img {
 	flex: 1 1 auto;
-	width: 150px;
+	width: 100px;
 	margin: 0 auto;
 	fill: #fff;
 }
