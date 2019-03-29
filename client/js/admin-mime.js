@@ -47,6 +47,21 @@ startMimeGame = () => {
     broarcastToMobiles({ msg: 'start-game-mime' });
     playNextMimeTurn();
 };
+let maxTime = 5000;
+let frames = 10;
+let kuku = (i, phaseData) => {
+     if (i < frames) {
+        broarcastToMobiles({
+            msg: "mime-game-selecting-user",
+            userName: userNames[i%userNames.length]
+        });
+        setTimeout(() => {
+            kuku(i+1, phaseData);
+        }, 100);
+    } else {
+        broarcastToMobiles(phaseData);
+    }
+};
 
 playNextMimeTurn = () => { 
     let selectedUserIndex = Math.floor(Math.random() * userNames.length);
@@ -57,8 +72,7 @@ playNextMimeTurn = () => {
     }
     phaseData.userName = userNames[selectedUserIndex];
     console.log('יאללה ' +  phaseData.userName);
-    document.getElementById('admin-mime-header').innerText = '!יאללה ' + phaseData.userName;
-    broarcastToMobiles(phaseData);
+    kuku(0, phaseData);
 };
 
 stopMimeGame = () => {

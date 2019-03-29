@@ -5,3 +5,11 @@
 	width: 100%;
 	background-color: #963F77;
 }
+
+.background-red {
+	background-color: red;
+}
+
+.background-black {
+	background-color: black;
+}
