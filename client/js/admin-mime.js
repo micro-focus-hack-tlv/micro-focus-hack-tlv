@@ -47,8 +47,8 @@ startMimeGame = () => {
     broarcastToMobiles({ msg: 'start-game-mime' });
     playNextMimeTurn();
 };
-let maxTime = 5000;
-let frames = 10;
+let maxTime = 2000;
+let frames = 50;
 let kuku = (i, phaseData) => {
      if (i < frames) {
         broarcastToMobiles({
@@ -57,7 +57,7 @@ let kuku = (i, phaseData) => {
         });
         setTimeout(() => {
             kuku(i+1, phaseData);
-        }, 100);
+        }, 100 + Math.pow(1/frames*i,15) * maxTime);
     } else {
         broarcastToMobiles(phaseData);
     }
