@@ -33,12 +33,6 @@ broarcastToMobiles = (data) => {
     socket.emit('admin-msg', data);
 };
 
-// startGame = (msg) => {
-//     console.log(`startGame(${msg})`);
-//     broarcastToMobiles({ msg: msg });
-//     playNextTurn();
-// };
-
 playNextTurn = (msg) => { 
     findNextPlayer();
     console.log(`${msg}`);
