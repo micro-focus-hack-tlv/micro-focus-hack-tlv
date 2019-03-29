@@ -1,8 +1,4 @@
 
-const SERVER_ADDRESS = 'localhost';
-//const SERVER_ADDRESS = '192.168.0.111';
-const SERVER_PORT = 4242;
-
 let socket;
 let userName;
 
@@ -10,7 +6,7 @@ connectToServer = (name) => {
     userName = name;
     if (!socket) {
         console.log(`connecting to server...`);
-        socket = io.connect(`http://${SERVER_ADDRESS}:${SERVER_PORT}`);        
+        socket = io.connect();
     }
     console.log(`sending username "${name}" to server...`);
     socket.emit('client-msg-register-user', {
