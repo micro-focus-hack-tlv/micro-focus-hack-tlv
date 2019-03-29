@@ -48,7 +48,7 @@ startMimeGame = () => {
     playNextMimeTurn();
 };
 let maxTime = 2000;
-let frames = 50;
+let frames = 30;
 let kuku = (i, phaseData) => {
      if (i < frames) {
         broarcastToMobiles({
