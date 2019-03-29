@@ -72,6 +72,7 @@ playNextMimeTurn = () => {
     }
     phaseData.userName = userNames[selectedUserIndex];
     console.log('יאללה ' +  phaseData.userName);
+    document.getElementById('admin-mime-header').innerText = '!יאללה ' + phaseData.userName;
     kuku(0, phaseData);
 };
 
