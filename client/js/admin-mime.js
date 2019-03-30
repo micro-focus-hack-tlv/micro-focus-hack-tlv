@@ -14,6 +14,28 @@ setPharses = () => {
     listOfPhrases.push('ביג');
     listOfPhrases.push('מת לחיות');
     listOfPhrases.push('דרדסים');
+    listOfPhrases.push('מלך האריות');
+    listOfPhrases.push('הקוסם מארץ עוץ');
+    listOfPhrases.push('קינג קונג');
+    listOfPhrases.push('שלגיה ושבעת הגמדים');
+    listOfPhrases.push('החבובות');
+    listOfPhrases.push('מפלצות בעמ');
+    listOfPhrases.push('אלאדין');
+    listOfPhrases.push('אליס בארץ הפלאות');
+    listOfPhrases.push('בת הים הקטנה');
+    listOfPhrases.push('דמבו הפיל המעופף');
+    listOfPhrases.push('היפה והחיה');
+    listOfPhrases.push('הקול בראש');
+    listOfPhrases.push('לשבור את הקרח');
+    listOfPhrases.push('מואנה');
+    listOfPhrases.push('מוצאים את נמו');
+    listOfPhrases.push('משפחת סופר-על');
+    listOfPhrases.push('ספר הגונגל');
+    listOfPhrases.push('פו הדוב');
+    listOfPhrases.push('צעצוע של סיפור');
+    listOfPhrases.push('ראלף ההורס');
+    listOfPhrases.push('שודדי הקאריביים');
+     
 };
 
 getGamePhase = () => {
